@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ArticulacionCompletarConfig(AppConfig):
+class DiscriminacionAuditivaConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'articulacion_completar'
+    name = 'discriminacion_auditiva'
