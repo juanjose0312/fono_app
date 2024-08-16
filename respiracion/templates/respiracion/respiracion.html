@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Respiracion</h2>
+    {% for instruccion in instrucciones %}
+        <h3>{{instruccion.nombre}}</h3>
+        <p>{{instruccion.instrucciones}}</p>
+        <video controls style="width: 600px;">
+            <source src="{{instruccion.video.url}}" type="video/mp4">
+        </video>
+    {% endfor %}
+{% endblock content %}

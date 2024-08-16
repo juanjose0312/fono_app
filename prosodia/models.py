@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Posodia_cancion_info(models.Model):
+class Prosodia_cancion_info(models.Model):
     nombre= models.TextField(max_length=100, verbose_name="nombre")
     parrafo_1 = models.TextField(max_length=1000, verbose_name="parrafo_1")
     respuesta_1 = models.TextField(max_length=100, verbose_name="respuesta_1")
@@ -17,7 +17,7 @@ class Posodia_cancion_info(models.Model):
     def __str__(self):
         return self.nombre
     
-class posodia_trabalenguas_info(models.Model):
+class Prosodia_trabalenguas_info(models.Model):
     nombre= models.TextField(max_length=100, verbose_name="nombre")
     imagen = models.ImageField(upload_to='fotos/', null=False, verbose_name="imagen")
     transcripcion_trabalenguas = models.TextField(max_length= 300, verbose_name="transcripcion")

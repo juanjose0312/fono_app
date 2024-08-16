@@ -1,7 +1,16 @@
 from django.urls import path
+from .views import Prosodia_cancion_view
+from .views import Prosodia_trabalenguas_view
 
 urlpatterns = [
-
-    # this is a example of a path by juan jose
-    #path('add/', ProductFormView.as_view(), name='add_product'),
+    path(
+        'prosodia_cancion/',
+        Prosodia_cancion_view.as_view(),
+        name='prosodia_cancion'
+    ),
+    path(
+        'prosodia_trabalenguas/',
+        Prosodia_trabalenguas_view.as_view(),
+        name='prosodia_trabalenguas'
+    )
 ]
