@@ -9,7 +9,7 @@ class Articulacion_como_pronunciarAdmin(admin.ModelAdmin):
 
 class Articulacion_completarAdmin(admin.ModelAdmin):
     model = Articulacion_completar_info
-    list_display = ('nombre', 'imagen', 'texto_incompleto', 'texto_completo')
+    list_display = ('letra_categoria', 'imagen', 'texto_incompleto', 'texto_completo')
     search_fields = ['nombre']
 
 class Articulacion_seleccionAdmin(admin.ModelAdmin):

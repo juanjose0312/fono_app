@@ -1,1 +1,21 @@
-a
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Articulacion como pronunciar</h2>
+<ul>
+{% for instruccion in instrucciones %}
+<li>        
+        <h3>{{ instruccion.nombre }} </h3>
+        <p>{{ instruccion.instruciones }} </p>
+        <video controls style="width:600px;">
+            <source src="{{ instruccion.video.url }}" type="video/mp4">
+        </video>
+        
+        <img src="{{ instruccion.foto_mayuscula.url }}" alt="foto_mayuscula" style="width:600px;">
+        <img src="{{ instruccion.foto_minuscula.url }}" alt="foto_minuscula" style="width:600px;">
+    
+
+    </li>
+{%endfor%}
+</ul>
+{% endblock content %}

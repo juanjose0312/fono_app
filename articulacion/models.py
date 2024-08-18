@@ -12,11 +12,10 @@ class Articulacion_como_pronunciar_info(models.Model):
         return self.nombre
     
 class Articulacion_completar_info(models.Model):
-    nombre= models.TextField(max_length=100, verbose_name="nombre")
+    letra_categoria = models.TextField(max_length=100, verbose_name="letra")
     imagen = models.ImageField(upload_to='fotos/', null=False, verbose_name="imagen")
     texto_incompleto = models.TextField(max_length=30, verbose_name="texto_incompleto")
     texto_completo = models.TextField(max_length=30, verbose_name="texto_completo")
-
     def __str__(self):
         return self.nombre
     

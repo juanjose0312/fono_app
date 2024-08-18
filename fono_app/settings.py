@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'prosodia',
     'discriminacion_auditiva',
     'users',
+    'perfil',
 
 ]
 
@@ -132,4 +133,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'respiracion_instrucciones'
+LOGIN_REDIRECT_URL = 'perfil'
+LOGOUT_REDIRECT_URL = 'login'
