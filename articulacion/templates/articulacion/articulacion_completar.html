@@ -2,24 +2,13 @@
 
 {% block content %}
 <h2>Articulacion completar</h2>
+{{letra}}
 <ul>
 {% for instruccion in instrucciones %}
-<li>        
-    nombre
-    imagen
-    texto_incompleto
-    texto_completo
-        <h3>{{ instruccion.nombre }} </h3>
-        <p>{{ instruccion.instruciones }} </p>
-        <video controls style="width:600px;">
-            <source src="{{ instruccion.video.url }}" type="video/mp4">
-        </video>
-        
-        <img src="{{ instruccion.foto_mayuscula.url }}" alt="foto_mayuscula" style="width:600px;">
-        <img src="{{ instruccion.foto_minuscula.url }}" alt="foto_minuscula" style="width:600px;">
-    
-
-    </li>
+<li>
+    <img src="{{ instruccion.imagen.url }}" alt="imagen" style="width:100px;">
+    <p>{{ instruccion.texto_incompleto }} </p>
+</li>
 {%endfor%}
 </ul>
 {% endblock content %}

@@ -10,13 +10,13 @@ urlpatterns = [
         name='articulacion_como_pronunciar'
     ),
     path(
+        'articulacion_completar/<str:letra>/',
+        Articulacion_completar_view.as_view(),
+        name='articulacion_completar'
+    ),
+    path(
         'articulacion_seleccion/',
         Articulacion_seleccion_view.as_view(),
         name='articulacion_seleccion'
     ),
-    path(
-        'articulacion_completar/',
-        Articulacion_completar_view.as_view(),
-        name='articulacion_completar'
-    )
 ]

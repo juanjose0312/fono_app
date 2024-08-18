@@ -7,7 +7,6 @@ class Articulacion_como_pronunciar_info(models.Model):
     video = models.FileField(upload_to='videos/', null=False, verbose_name="video")
     foto_mayuscula = models.ImageField(upload_to='fotos/', null=False, verbose_name="foto_mayuscula")
     foto_minuscula = models.ImageField(upload_to='fotos/', null=False, verbose_name="foto_minuscula")
-
     def __str__(self):
         return self.nombre
     
@@ -17,7 +16,8 @@ class Articulacion_completar_info(models.Model):
     texto_incompleto = models.TextField(max_length=30, verbose_name="texto_incompleto")
     texto_completo = models.TextField(max_length=30, verbose_name="texto_completo")
     def __str__(self):
-        return self.nombre
+
+        return self.texto_completo
     
 class Articulacion_seleccion_info(models.Model):
     nombre= models.TextField(max_length=100, verbose_name="nombre")
