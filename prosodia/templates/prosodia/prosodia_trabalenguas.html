@@ -1,1 +1,10 @@
-prosodia trabalenguas
+{% extends "base.html" %}
+{% block content %}
+<h2>Prosodia trabalenguas</h2>
+<p>Ahora activa tu microfono y lee el trabalenguas no te equivoques</p>
+{% for instruccion in instrucciones %}
+    <p>{{instruccion.nombre}}</p>
+    <img src="{{instruccion.imagen.url}}" alt="imagen trabalenguas">
+    <button>grabar audio</button>
+{% endfor %}
+{% endblock content %} 

@@ -14,8 +14,8 @@ class Articulacion_completarAdmin(admin.ModelAdmin):
 
 class Articulacion_seleccionAdmin(admin.ModelAdmin):
     model = Articulacion_seleccion_info
-    list_display = ('nombre', 'audio_a', 'audio_e', 'audio_i', 'audio_o', 'audio_u')
-    search_fields = ['nombre']
+    list_display = ('letra_categoria', 'audio_a', 'audio_e', 'audio_i', 'audio_o', 'audio_u')
+    search_fields = ['letra_categoria']
 
 admin.site.register(Articulacion_como_pronunciar_info, Articulacion_como_pronunciarAdmin)
 admin.site.register(Articulacion_completar_info, Articulacion_completarAdmin)

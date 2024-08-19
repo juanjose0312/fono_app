@@ -1,14 +1,18 @@
-{% extends "base.html" %}
+r{% extends "base.html" %}
 {% block content %}
 <ul>
 <li><a href="{% url "respiracion_instrucciones" %}">Respiracion</a></li>
+
 {% comment %} <a href="{% url "fonacion" %}">fonacion</a> {% endcomment %}
 {% comment %}  <a href="{% url "resonancia" %}">resonancia</a> {% endcomment %}
+
 <li><a href="{% url "articulacion_como_pronunciar" %}">Articulacion como pronunciar</a></li>
-<li><a href="{% url "articulacion_seleccion" %}">Articulacion seleccionar</a></li>
-<li><a href="{% url "articulacion_completar" %}">Articulacion completar</a></li>
+<li><a href="{% url "articulacion_seleccion" "d" %}">Articulacion seleccionar</a></li>
+<li><a href="{% url "articulacion_completar" "d"  %}">Articulacion completar</a></li>
+
 <li><a href="{% url "prosodia_cancion" %}">Prosodia cancion</a></li>
 <li><a href="{% url "prosodia_trabalenguas" %}">Prosodia trabalenguas</a></li>
+
 <li><a href="{% url "discriminacion_auditiva_escoger" %}">Discr iminacion auditiva escoger</a></li>
 <li><a href="{% url "discriminacion_auditiva_seleccionar" %}">Discriminacion auditiva seleccionar</a></li>
 </ul>

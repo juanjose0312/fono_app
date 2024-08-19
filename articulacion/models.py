@@ -20,7 +20,7 @@ class Articulacion_completar_info(models.Model):
         return self.texto_completo
     
 class Articulacion_seleccion_info(models.Model):
-    nombre= models.TextField(max_length=100, verbose_name="nombre")
+    letra_categoria = models.TextField(max_length=100, verbose_name="letra_categoria")
     audio_a = models.FileField(upload_to='audios/', null=False, verbose_name="audio_a")
     audio_e = models.FileField(upload_to='audios/', null=False, verbose_name="audio_e")
     audio_i = models.FileField(upload_to='audios/', null=False, verbose_name="audio_i")
@@ -28,4 +28,4 @@ class Articulacion_seleccion_info(models.Model):
     audio_u = models.FileField(upload_to='audios/', null=False, verbose_name="audio_u")
 
     def __str__(self):
-        return self.nombre
+        return self.letra_categoria

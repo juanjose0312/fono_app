@@ -1,4 +1,36 @@
-prosodia cancion
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Prosodia cancion</h2>
+<p>Complete la cancion con tu voz</p>
+<ul>
+{% for instruccion in instrucciones %}
+<li>
+
+    <h3>Cancion : {{ instruccion.nombre }} </h3>
+    <p>{{instruccion.parrafo_1}}</p>
+    <button>grabar audio</button>
+    {% if instruccion.parrafo_2 != "0" %}
+        <p>{{instruccion.parrafo_2}}</p>
+        <button>grabar audio</button>       
+    {% endif %}
+    {% if instruccion.parrafo_3 != "0" %}
+        <p>{{instruccion.parrafo_3}}</p>
+        <button>grabar audio</button>
+    {% endif %}
+    {% if instruccion.parrafo_4 != "0" %}
+        <p>{{instruccion.parrafo_4}}</p>
+        <button>grabar audio</button>
+    {% endif %}
+    {% if instruccion.parrafo_5 != "0" %}
+        <p>{{instruccion.parrafo_5}}</p>
+        <button>grabar audio</button>    
+    {% endif %}
+
+</li>
+{%endfor%}
+</ul>
+{% endblock content %}
 
 
 

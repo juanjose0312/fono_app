@@ -1,1 +1,15 @@
-discriminacion auditiva escoger
+{% extends "base.html" %}
+{% block content %}
+<h2>Descriminacion auditiva escoger</h2>
+<p>Escucha atentamente y elige la imagen correcta</p>
+
+{% for instruccion in instrucciones %}
+
+    <img src="{{instruccion.imagen_correcta.url}}" alt="imagen correcta">
+    <img src="{{instruccion.imagen_incorrecta.url}}" alt="imagen incorrecta">   
+    <audio controls>
+        <source src="{{instruccion.audio.url}}" type="audio/mp3" >
+    </audio>
+    
+{% endfor %}
+{% endblock content %} 
