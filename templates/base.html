@@ -7,7 +7,16 @@
 </head>
 <body>
     <h1>fono_app</h1> {% comment %} lo que va aparecer en todsa las aplicacion {% endcomment %}
-    <a href="{% url "perfil" %}">perfil</a> {% comment %} el link de la aplicacion perfil {% endcomment %}
+    {% if user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+        <a href="{% url "perfil" %}">perfil</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    
     {% block content %}{% endblock %}   {% comment %}el  bloque de modulo de cada app html{% endcomment %}
 </body> 
 </html>
