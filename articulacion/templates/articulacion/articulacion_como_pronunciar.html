@@ -1,8 +1,13 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/articulacion_como_pronunciar.css' %}">  
+{% endblock extra_styles %}
 
 {% block content %}
-<h2>Articulacion como pronunciar</h2>
 <ul>
+<h2>Articulacion como pronunciar</h2>
 {% for instruccion in instrucciones %}
 <li>        
         <h3>{{ instruccion.nombre }} </h3>
@@ -13,8 +18,7 @@
         
         <img src="{{ instruccion.foto_mayuscula.url }}" alt="foto_mayuscula" style="width:600px;">
         <img src="{{ instruccion.foto_minuscula.url }}" alt="foto_minuscula" style="width:600px;">
-    
-
+        
     </li>
 {%endfor%}
 </ul>

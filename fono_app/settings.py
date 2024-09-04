@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-co'
 
 TIME_ZONE = 'UTC'
 
@@ -133,6 +133,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# link to the login page
 LOGIN_REDIRECT_URL = 'perfil'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_URL = 'login'
+
+# link the static files
+STATIC_URL = '/static/'

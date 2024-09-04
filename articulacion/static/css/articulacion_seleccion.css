@@ -1,0 +1,69 @@
+ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0; /* Quita el relleno por defecto del navegador */
+    margin: 0; /* Quita el margen por defecto del navegador */
+    width: 100%;    
+    max-width: 400px;
+    background-color: white;
+    border-radius: 15px;    
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    text-align: center;
+
+}
+
+h2 {
+    color: #e63946; /* Color rojo */
+    font-size: 30px;
+    text-align: center; /* Centra el texto */
+    margin-bottom: 20px;
+}
+
+/* Estilo para cada elemento de la lista */
+li {
+    margin-bottom: 30px; /* Espacio entre elementos de la lista */
+}
+
+/* Subtítulos de las instrucciones */
+h3 {
+
+    color: #eb670a;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Párrafo de las instrucciones */
+p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: justify; /* Centra el texto */
+}
+
+/* Estilo para el video */
+video {
+    display: block; /* Elemento de bloque */
+    width: 100%; /* Toma el 100% del contenedor */
+    max-width: 300px; /* Limitar el tamaño del video */
+    border-radius: 10px; /* Bordes redondeados */
+    margin: 10px auto; /* Margen superior e inferior, centrado horizontalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el video */
+}
+
+/* Estilo para las imágenes */
+img {
+    display: inline-block; /* poner la imagen en la misma fila */
+    width: 40%; /* Toma el 100% del contenedor */
+    max-width: 150px; /* Limitar el tamaño de la imagen */
+}
+
+/* Estilo para el texto destacado en rojo */
+.destacado {
+    color: #e63946; /* Color rojo */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center; /* Centra el texto */
+    margin-top: 20px;
+}

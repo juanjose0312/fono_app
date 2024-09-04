@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/articulacion_seleccion.css' %}">  
+{% endblock extra_styles %}
+
 {% block content %}
 <h2>Articulacion seleccionar</h2>
 <h3>Vamos a trabajar con la letra: {{letra}}</h3>

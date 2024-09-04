@@ -1,0 +1,56 @@
+
+ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0; /* Quita el relleno por defecto del navegador */
+    margin: 0; /* Quita el margen por defecto del navegador */
+    width: 80vw;    
+    background-color: white;
+    border-radius: 15px;    
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 20px auto;
+    text-align: center;
+
+}
+
+/* Título principal */
+h2 {
+    color: #51c934; /* Color rojo similar al de la imagen */
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Subtítulos de las instrucciones */
+h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* Párrafo de las instrucciones */
+p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+    text-align: justify;
+}
+
+/* Video */
+video {
+    width: 100%;
+    max-width: 300px; /* Limitar el tamaño del video */
+    border-radius: 10px; /* Bordes redondeados para el video */
+    margin: 20px 0;
+    margin: 20px auto; /* Margen superior/inferior de 20px y auto izquierda/derecha para centrar */
+    display: block; /* Hace que el video se centre horizontalmente */
+}
+
+p.destacado {
+    font-weight: bold;
+    color: #e63946; /* Rojo para el texto de motivación */
+    margin-top: 20px;
+    text-align: center; /* Centra el texto horizontalmente */
+}
+

@@ -1,5 +1,13 @@
 {% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/prosodia_trabalenguas.css' %}"> 
+{% endblock extra_styles %}
+
 {% block content %}
+<ul>
 <h2>Prosodia trabalenguas</h2>
 <p>Ahora activa tu microfono y lee el trabalenguas no te equivoques</p>
 {% for instruccion in instrucciones %}
@@ -7,4 +15,5 @@
     <img src="{{instruccion.imagen.url}}" alt="imagen trabalenguas">
     <button>grabar audio</button>
 {% endfor %}
+</ul>
 {% endblock content %} 

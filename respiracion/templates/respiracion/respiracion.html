@@ -1,5 +1,14 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/respiracion.css' %}"> 
+{% endblock extra_styles %}
+
 {% block content %}
+    <!-- Asegúrate de tener la etiqueta `{% load static %}` en la parte superior si estás usando Django -->
+    <ul>
+    
     <h2>Respiracion</h2>
     {% for instruccion in instrucciones %}
         <h3>{{instruccion.nombre}}</h3>
@@ -8,4 +17,8 @@
             <source src="{{instruccion.video.url}}" type="video/mp4">
         </video>
     {% endfor %}
+
+    <p class="destacado">Lo haces genial, sigue así</p>
+</ul>
+
 {% endblock content %}

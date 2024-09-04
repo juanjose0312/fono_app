@@ -1,10 +1,17 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>INICIAR SESSION</h2>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-     <button type="submit">Login</button>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="">
+    <title>fono_app</title>
+</head>
+<body>
+    <h2>INICIAR SESSION</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
 
-</form>
-{% endblock content %}
+    <p> ¿no tienes una cuenta? <a href="{% url 'registro' %}">Registrarse aqui</a></p>
+</body>

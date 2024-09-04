@@ -1,0 +1,31 @@
+ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0; /* Quita el relleno por defecto del navegador */
+    margin: 0; /* Quita el margen por defecto del navegador */
+    width: 100%;    
+    max-width: 400px;
+    background-color: white;
+    border-radius: 15px;    
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    text-align: center;
+
+}
+
+/* Título principal */
+h2 {
+    color: #39e676; /* Color rojo similar al de la imagen */
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Párrafo de las instrucciones */
+p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
+    text-align: justify;
+}

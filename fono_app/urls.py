@@ -29,4 +29,5 @@ urlpatterns = [
     path('discriminacion_auditiva/', include('discriminacion_auditiva.urls')),
     path('usuarios/', include('users.urls')),
     path('perfil/', include('perfil.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
