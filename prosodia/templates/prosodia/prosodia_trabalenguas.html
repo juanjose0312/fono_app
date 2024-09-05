@@ -7,13 +7,18 @@
 {% endblock extra_styles %}
 
 {% block content %}
-<ul>
+
+<div class="content">
+
 <h2>Prosodia trabalenguas</h2>
 <p>Ahora activa tu microfono y lee el trabalenguas no te equivoques</p>
 {% for instruccion in instrucciones %}
-    <p>{{instruccion.nombre}}</p>
+    <p>Nombre del trabalenguas</p>
+    <h3>{{instruccion.nombre}}</h3>
     <img src="{{instruccion.imagen.url}}" alt="imagen trabalenguas">
-    <button>grabar audio</button>
+    <button class="mic-button">
+        <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
+    </button>
 {% endfor %}
-</ul>
+</div>
 {% endblock content %} 

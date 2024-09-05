@@ -1,18 +1,29 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/articulacion_completar.css' %}">  
+    <link rel="stylesheet" href="{% static 'css/style_art_completar.css' %}">  
 {% endblock extra_styles %}
 
 {% block content %}
-<h2>Articulacion completar</h2>
-<h3>Vamos a trabajar con la letra: {{letra}}</h3>
-<ul>
-{% for instruccion in instrucciones %}
-<li>
-    <img src="{{ instruccion.imagen.url }}" alt="imagen" style="width:100px;">
-    <p>{{ instruccion.texto_incompleto }} </p>
-</li>
-{%endfor%}
-</ul>
+
+<div class="content">
+    <h2>Articulacion completar</h2>
+    <p> Vamos a trabajar con la </p>
+    <h3>Letra: {{letra}}</h3>
+    <p>Completa la palabra con la sílaba que falta</p>
+    <ul>
+    {% for instruccion in instrucciones %}
+    <li>
+        <img src="{{ instruccion.imagen.url }}" alt="imagen">
+        <p>{{ instruccion.texto_incompleto }} </p>
+        <button class="mic-button">
+            <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
+        </button>
+    </li>
+    {%endfor%}
+    </ul>   
+</div>
+
+
 {% endblock content %}

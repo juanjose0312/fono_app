@@ -1,6 +1,4 @@
-.content {
-    height: 60vh;
-}
+
 
 h2 {
     color: var(--color-titulo);
@@ -10,7 +8,7 @@ h2 {
 p {
     color: var(--color-parrafo);
     font-size: var(--font-size-parrafo);;
-}   
+}  
 
 h3 {
     color: var(--color-subtitulo);
@@ -25,6 +23,7 @@ h3 {
     border: rgb(0, 0, 0);
     cursor: pointer;
     border-radius: 50%;
+
 }
 
 .mic-button:active {

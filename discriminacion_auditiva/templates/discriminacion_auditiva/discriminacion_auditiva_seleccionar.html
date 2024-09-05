@@ -1,14 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/style_dis_auditiva_seleccionar.css' %}">  
+{% endblock extra_styles %}
+
 {% block content %}
-<h2>Descriminacion auditiva seleccionar</h2>
-<p>Une la imagen al sonido que correspond </p>
-
-{% for instruccion in instrucciones %}
-
-    <img src="{{instruccion.imagen.url}}" alt="imagen">  
-    <audio controls>
-        <source src="{{instruccion.audio.url}}" type="audio/mp3" >
-    </audio>
-    
-{% endfor %}
+<div class="content">
+    <h2>Descriminacion auditiva seleccionar</h2>
+    <p>Une la imagen al sonido que corresponde </p>
+    <ul>
+    {% for instruccion in instrucciones %}
+        <li>
+            <img src="{{instruccion.imagen.url}}" alt="imagen">  
+            <audio controls>
+                <source src="{{instruccion.audio.url}}" type="audio/mp3" >
+            </audio>
+        </li>
+    {% endfor %}
+    <ul/>
+</div>
 {% endblock content %} 

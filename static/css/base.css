@@ -1,0 +1,82 @@
+:root {
+    --color-titulo: #ff6347;
+    --color-subtitulo: #ff8800;
+    --color-parrafo: #555;
+    --color-destacado: #ff0015;
+    --font-size-titulo: 12rem;
+    --font-size-subtitulo: 7rem;
+    --font-size-parrafo: 6rem;
+    --font-size-destacado: 8rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Concert One", cursive;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+nav {
+    padding: 1vh 5vw;
+    width: 100vw;
+    height: 10vh;
+    border-bottom: #fecb49 8px solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav_logo img{
+    width: 40vw;
+}
+
+.nav_buttons {
+    height: 8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.nav_button {
+    font-size: 4rem;
+}
+
+.nav_buttons form button {
+    background-color: #fecb49;
+    color: #fff;
+    border: none;
+    padding: 0.5vh 2vw;
+    cursor: pointer;
+}
+
+.nav_buttons a {
+    text-decoration: none;
+    background-color: #fecb49;
+    color: #fff;
+    border: none;
+    padding: 0.5vh 2vw;
+    cursor: pointer;
+    text-align: end;
+}
+
+/* Asegúrate de que el contenedor padre tenga display: flex y esté centrado */
+content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 90vw;
+    border-radius: 15px;
+    margin-top: 2vh;
+    padding: 1vh 5vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;   
+}

@@ -1,0 +1,31 @@
+.content *{
+    margin-bottom: 2vh;
+}
+
+h2 {
+    color: var(--color-titulo);
+    font-size: var(--font-size-titulo);
+    text-align: center;
+}
+
+p {
+    color: var(--color-parrafo);
+    font-size: var(--font-size-parrafo);;
+}
+
+
+ul {
+    width: 80%;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+    align-items: center;
+
+}
+img {
+    width: 20vw;
+} 
+

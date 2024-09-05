@@ -3,20 +3,35 @@
 <head>
     <meta charset="utf-8">
     <title>fono_app</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
     {% block extra_styles %}{% endblock extra_styles %}
 </head>
 <body>
-    <h1>fono_app</h1> {% comment %} lo que va aparecer en todsa las aplicacion {% endcomment %}
-    {% if user.is_authenticated %}
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
-        <a href="{% url "perfil" %}">perfil</a>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %}
+    <nav>
+        <div class="nav_logo">
+            <img src="{% static 'images/logo.png' %}" alt="logo">
+        </div>
+        <div class="nav_buttons">
+            {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="nav_button" type="submit">Cerrar sesion</button>
+                </form>
+                <a class="nav_button" href="{% url "perfil" %}">Inicio</a>
+            {% else %}
+                <a class="nav_button" href="{% url 'login' %}">Login</a>
+                <a class="nav_  button" href="{% url "perfil" %}">Inicio</a>
+            {% endif %}
+        </div>
+    </nav>
     
-    {% block content %}{% endblock %}   {% comment %}el  bloque de modulo de cada app html{% endcomment %}
+    <content>
+        {% block content %}{% endblock %}
+    </content>
 </body>
 </html>

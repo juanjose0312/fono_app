@@ -1,35 +1,55 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/style_prosodia_cancion.css' %}">  
+{% endblock extra_styles %}
 
 {% block content %}
-<h2>Prosodia cancion</h2>
-<p>Complete la cancion con tu voz</p>
-<ul>
-{% for instruccion in instrucciones %}
-<li>
+<div class="content" >  
+    <h2>Prosodia cancion</h2>
+    <p>Complete la cancion con tu voz</p>
 
-    <h3>Cancion : {{ instruccion.nombre }} </h3>
-    <p>{{instruccion.parrafo_1}}</p>
-    <button>grabar audio</button>
-    {% if instruccion.parrafo_2 != "0" %}
-        <p>{{instruccion.parrafo_2}}</p>
-        <button>grabar audio</button>       
-    {% endif %}
-    {% if instruccion.parrafo_3 != "0" %}
-        <p>{{instruccion.parrafo_3}}</p>
-        <button>grabar audio</button>
-    {% endif %}
-    {% if instruccion.parrafo_4 != "0" %}
-        <p>{{instruccion.parrafo_4}}</p>
-        <button>grabar audio</button>
-    {% endif %}
-    {% if instruccion.parrafo_5 != "0" %}
-        <p>{{instruccion.parrafo_5}}</p>
-        <button>grabar audio</button>    
-    {% endif %}
+    {% for instruccion in instrucciones %}
+    <li>
+        <p>Nombre de la canción : </p>
+        <h3>{{instruccion.nombre}}</h3>
+        <p>{{instruccion.parrafo_1}}</p>
+        
+        <button class="mic-button">
+            <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
+        </button>
+        {% if instruccion.parrafo_2 != "0" %}
+            <p>{{instruccion.parrafo_2}}</p>
+            <button class="mic-button">
+                <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
+            </button>       
+        {% endif %}
 
-</li>
-{%endfor%}
-</ul>
+        {% if instruccion.parrafo_3 != "0" %}
+            <p>{{instruccion.parrafo_3}}</p>
+            <button class="mic-button">
+                <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
+            </button>
+        {% endif %}
+
+        {% if instruccion.parrafo_4 != "0" %}
+            <p>{{instruccion.parrafo_4}}</p>
+            <button class="mic-button">
+                <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
+            </button>
+        {% endif %}
+        
+        {% if instruccion.parrafo_5 != "0" %}
+            <p>{{instruccion.parrafo_5}}</p>
+            <button class="mic-button">
+                <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
+            </button>   
+        {% endif %}
+
+    </li>
+    {%endfor%}
+</div>
 {% endblock content %}
 
 

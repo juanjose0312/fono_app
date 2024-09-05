@@ -1,20 +1,26 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/articulacion_como_pronunciar.css' %}">  
+    <link rel="stylesheet" href="{% static 'css/style_dis_auditiva_escoger.css' %}">  
 {% endblock extra_styles %}
 
 {% block content %}
-<h2>Descriminacion auditiva escoger</h2>
-<p>Escucha atentamente y elige la imagen correcta</p>
+<div class="content">
+    <h2>Descriminacion auditiva escoger</h2>
+    <p>Escucha atentamente y elige la imagen correcta</p>
+    <ul>
+    {% for instruccion in instrucciones %}
+    <li>
+        <img src="{{instruccion.imagen_correcta.url}}" alt="imagen correcta">
+        <audio controls>
+            <source src="{{instruccion.audio.url}}" type="audio/mp3" >
+        </audio>
+        <img src="{{instruccion.imagen_incorrecta.url}}" alt="imagen incorrecta">   
+    </li>
 
-{% for instruccion in instrucciones %}
+    {% endfor %}
+    </ul>   
+</div>
 
-    <img src="{{instruccion.imagen_correcta.url}}" alt="imagen correcta">
-    <img src="{{instruccion.imagen_incorrecta.url}}" alt="imagen incorrecta">   
-    <audio controls>
-        <source src="{{instruccion.audio.url}}" type="audio/mp3" >
-    </audio>
-    
-{% endfor %}
 {% endblock content %} 

@@ -1,0 +1,43 @@
+.content * {
+    margin-bottom: 2vh;
+} 
+
+
+
+/* Título principal */
+h2 {
+    color: var(--color-titulo);
+    font-size: var(--font-size-titulo);
+    text-align: center;
+}
+
+/* Subtítulos de las instrucciones */
+h3 {
+    color: var(--color-subtitulo);
+    font-size: var(--font-size-subtitulo);
+    text-align: center;
+}
+
+/* Párrafo de las instrucciones */
+p {
+    color: var(--color-parrafo);
+    font-size: var(--font-size-parrafo);;
+}
+
+/* Video */
+video {
+    width: 80vw;
+    border-radius: 10px; /* Bordes redondeados para el video */
+    display: block; /* Hace que el video se centre horizontalmente */
+}
+
+.content_image {
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+img {
+    width: 30vw;
+} 

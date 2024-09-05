@@ -140,3 +140,6 @@ LOGIN_URL = 'login'
 
 # link the static files
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
