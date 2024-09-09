@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/style_art_seleccion.css' %}">  
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="content" >
+    <h2>Menú de Letras</h2>
+    <ul>
+    {% for instruccion in instrucciones %}
+        <li><a href="{% url "articulacion_seleccion" instruccion.letra_categoria  %}"><p>{{ instruccion.letra_categoria }}</p></a></li>
+    {% endfor %}
+        
+    </ul>
+</div>
+{% endblock content %}
+

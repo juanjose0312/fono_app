@@ -1,0 +1,108 @@
+:root {
+    --color-titulo: #ff6347;
+    --color-subtitulo: #ff8800;
+    --color-parrafo: #555;
+    --color-destacado: #ff0015;
+    --font-size-titulo: 12rem;
+    --font-size-subtitulo: 7rem;
+    --font-size-parrafo: 6rem;
+    --font-size-destacado: 8rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Concert One", cursive;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 90vw;
+    border-radius: 15px;
+    margin-top: 2vh;
+    padding: 1vh 5vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;   
+}
+
+h2 {
+    color: var(--color-titulo);
+    font-size: var(--font-size-titulo);
+    text-align: center;
+}
+
+.content img{
+    width: 50vw;
+}
+
+.content * {
+    margin-bottom: 2vh;
+}
+
+p {
+    text-align: center;
+    font-size: var(--font-size-parrafo);
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    font-size: var(--font-size-parrafo);
+}
+
+input {
+    width: 80vw;
+    height: 5vh;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: var(--font-size-parrafo);
+}
+
+input[type="password"] {
+    letter-spacing: 5px;
+}
+
+.boton {
+    display: block;
+    text-align: center;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 80vw;
+    height: 5vh;
+    padding: 10px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: var(--font-size-parrafo);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff4500;
+}

@@ -1,0 +1,42 @@
+.content * {
+    margin-bottom: 2vh;
+}
+
+h2 {
+    color: var(--color-titulo);
+    font-size: var(--font-size-titulo);
+    text-align: center;
+}
+p {
+    color: var(--color-parrafo);
+    font-size: var(--font-size-parrafo);;
+}   
+
+h3 {
+    color: var(--color-subtitulo);
+    font-size: var(--font-size-subtitulo);
+    text-align: center;
+}
+
+.content img {
+    width: 80vw;
+}
+
+
+.mic-button {
+    height: 4vh;
+    width:  4vh;
+    background-color: var(--color-subtitulo);
+    border: rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.mic-button:active {
+    background-color: var(--color-titulo);
+}
+
+.mic-button img {
+    height: 3vh;
+    width: 3vh;
+}
