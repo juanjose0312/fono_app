@@ -2,24 +2,39 @@
 {% load static %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/style_perfil.css' %}">  
+    <link rel="stylesheet" href="{% static 'css/style_perfil_inicial.css' %}">  
 {% endblock extra_styles %}
 
 {% block content %}
-<ul>
-    <li><a href="{% url "respiracion_instrucciones" %}">Respiracion</a></li>
+<div class="content">
+    <h2>Perfil</h2>
+    {% for user in  users %}
+        <h3>nombre:</h3> <p>{{user.firstname}}</p>
+        <h3>apellido: </h3> <p>{{user.last_name}}</p>
+        <h3>email:</h3> <p>{{user.email}}</p>
+        <h3>fecha de nacimiento:</h3> <p>{{user.date_of_birth}}</p>
+        <h3>genero:</h3> <p>{{user.gender}}</p>
+        <h3>escolaridad:</h3> <p>{{user.escolaridad}}</p>   
+    {% endfor %}
     
-    {% comment %} <a href="{% url "fonacion" %}">fonacion</a> {% endcomment %}
-    {% comment %}  <a href="{% url "resonancia" %}">resonancia</a> {% endcomment %}
-    
-    <li><a href="{% url "menu_articulacion_pronunciar" %}">Articulacion como pronunciar</a></li>
-    <li><a href="{% url "menu_articulacion_seleccion" %}">Articulacion seleccionar</a></li>
-    <li><a href="{% url "menu_articulacion_completar"  %}">Articulacion completar</a></li>
-    
-    <li><a href="{% url "prosodia_cancion" %}">Prosodia cancion</a></li>
-    <li><a href="{% url "prosodia_trabalenguas" %}">Prosodia trabalenguas</a></li>
-    
-    <li><a href="{% url "discriminacion_auditiva_escoger" %}">Discriminacion auditiva escoger</a></li>
-    <li><a href="{% url "discriminacion_auditiva_seleccionar" %}">Discriminacion auditiva seleccionar</a></li>
-</ul>
+    <h3>Selecciona una opcion</h3>
+
+    <ul>
+
+        <li><a href="{% url "respiracion_instrucciones" %}">Respiracion</a></li>
+
+        {% comment %} <a href="{% url "fonacion" %}">fonacion</a> {% endcomment %}
+        {% comment %}  <a href="{% url "resonancia" %}">resonancia</a> {% endcomment %}
+
+        <li><a href="{% url "menu_articulacion_pronunciar" %}">Articulacion como pronunciar</a></li>
+        <li><a href="{% url "menu_articulacion_seleccion" %}">Articulacion seleccionar</a></li>
+        <li><a href="{% url "menu_articulacion_completar"  %}">Articulacion completar</a></li>
+
+        <li><a href="{% url "prosodia_cancion" %}">Prosodia cancion</a></li>
+        <li><a href="{% url "prosodia_trabalenguas" %}">Prosodia trabalenguas</a></li>
+
+        <li><a href="{% url "discriminacion_auditiva_escoger" %}">Discriminacion auditiva escoger</a></li>
+        <li><a href="{% url "discriminacion_auditiva_seleccionar" %}">Discriminacion auditiva seleccionar</a></li>
+    </ul>
+</div>
 {% endblock content %}

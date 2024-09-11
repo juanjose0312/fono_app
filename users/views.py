@@ -10,16 +10,11 @@ class RegisterView(FormView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')  # Redirige a la página de inicio o donde prefieras
 
-#    def form_valid(self, form):
-#        user = form.save()
-#        username = form.cleaned_data.get('username')
-#        password = form.cleaned_data.get('password1')
-#        user = authenticate(username=username, password=password)
-#        login(self.request, user)
-#
-#        return super().form_valid(form)
+    def form_valid(self, form):
+        user = form.save()
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password=password)
+        login(self.request, user)
 
-class ProfileView(ListView):
-    template_name = 'users/profile.html'
-    model = User
-    context_object_name = 'users'
+        return super().form_valid(form)

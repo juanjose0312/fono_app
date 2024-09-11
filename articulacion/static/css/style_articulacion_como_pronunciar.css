@@ -48,9 +48,9 @@ img {
     width: 30vw;
 } 
 
-h4 {
+a {
     color: var(--color-subtitulo);
-    font-size: var(--font-size-subtitulo);
+    font-size: var(--font-size-parrafo);
     text-align: center;
     text-decoration: none;
 }
