@@ -2,41 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style_register.css' %}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Usuario</title>
+
 </head>
+
 <body>
+<div class="content">
     <h2>Registro</h2>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.non_field_errors }}
-        <p>
+        <div>
             <label for="{{ form.username.id_for_label }}">Nombre de usuario:</label>
             {{ form.username }}
-        </p>
-        <p>
+
+        </div>
+        <div>
+
             <label for="{{ form.email.id_for_label }}">Correo electrónico:</label>
             {{ form.email }}
-        </p>
-        <p>
+
+        </div>
+        <div>
+
             <label for="{{ form.first_name.id_for_label }}">Nombre:</label>
             {{ form.first_name }}
-        </p>
+
+        </div>
             
-        <p>
+        <div>
             <label for="{{ form.last_name.id_for_label }}">Apellido:</label>
             {{ form.last_name }}
-        </p>
-        <p>
+        </div>
+        <div>
+            <label for="{{ form.date_of_birth.id_for_label }}">Fecha de nacimiento:</label>
+            {{ form.date_of_birth }}
+        </div>
+        <div>
+            <label for="{{ form.gender.id_for_label }}">Género:</label>
+            {{ form.gender }}
+        </div>
+        <div>
+            <label for="{{ form.escolaridad.id_for_label }}">Nivel Escolar:</label>
+            {{ form.escolaridad }}
+        </div>
+
+        <div>
             <label for="{{ form.password1.id_for_label }}">Contraseña:</label>
             {{ form.password1 }}
-        </p>
-        <p>
+        </div>
+        
+        <div>
             <label for="{{ form.password2.id_for_label }}">Confirmar contraseña:</label>
             {{ form.password2 }}
-        </p>
+        </div>
+
+
         <button type="submit">Registro</button>
     </form>
 </body>
+
 </html>

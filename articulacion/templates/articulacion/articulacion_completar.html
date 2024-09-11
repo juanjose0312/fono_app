@@ -8,19 +8,27 @@
 {% block content %}
 
 <div class="content">
+    <ul>
+        {% for instruccion in instrucciones %}
+            <li>{{ instruccion.campo1 }}</li>
+            <li>{{ instruccion.campo2 }}</li>
+        {% endfor %}
+    </ul>
+    <a hfre="{% url 'menu_articulacion_completar' %}">Volver al Menú</a>
+    
     <h2>Articulacion completar</h2>
     <p> Vamos a trabajar con la </p>
     <h3>Letra: {{letra}}</h3>
     <p>Completa la palabra con la sílaba que falta</p>
     <ul>
     {% for instruccion in instrucciones %}
-    <li>
-        <img src="{{ instruccion.imagen.url }}" alt="imagen">
-        <p>{{ instruccion.texto_incompleto }} </p>
-        <button class="mic-button">
-            <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
-        </button>
-    </li>
+        <li>
+            <img src="{{ instruccion.imagen.url }}" alt="imagen">
+            <p>{{ instruccion.texto_incompleto }} </p>
+            <button class="mic-button">
+                <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
+            </button>
+        </li>
     {%endfor%}
     </ul>   
 </div>

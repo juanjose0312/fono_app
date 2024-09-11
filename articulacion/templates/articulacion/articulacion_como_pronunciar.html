@@ -6,8 +6,11 @@
 {% endblock extra_styles %}
 
 {% block content %}
+
 <div class="content" >
+    
     <h2>Articulacion como pronunciar</h2>
+    
     {% for instruccion in instrucciones %}        
 
         <h3>{{ instruccion.nombre }}</h3>
@@ -24,5 +27,7 @@
         </div>
         
     {%endfor%}
+
+    <a href="{% url 'menu_articulacion_pronunciar' %}">Volver al Menú</a>
 </div>
 {% endblock content %}

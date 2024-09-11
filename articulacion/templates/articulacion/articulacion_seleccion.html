@@ -7,14 +7,13 @@
 
 {% block content %}
 <div class="content" >
-    <ul>
+{% comment %}     <ul>
         {% for instruccion in instrucciones %}
             <li>{{ instruccion.campo1 }}</li>
             <li>{{ instruccion.campo2 }}</li>
         {% endfor %}
-    </ul>
+    </ul> {% endcomment %}
     
-    <a href="{% url 'menu_articulacion_seleccion' %}">Volver al Menú</a>
 
     <h2>Articulacion seleccionar</h2>
     <p> Vamos a trabajar con la </p>
@@ -59,6 +58,7 @@
         </li>
     {% endfor %}
     </ul>
+    <a href="{% url 'menu_articulacion_seleccion' %}"><h3>Volver al Menú</h3></a>
 
 </div>
 {% endblock content %}

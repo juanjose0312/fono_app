@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/style_menu_articulacion_pronunciar.css' %}">  
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="content">
+    <h2>Menú de Letras</h2>
+    <div class="grid-container"> 
+        {% for instruccion in instrucciones %}
+            <div class="grid-item">
+                <a href="{% url 'articulacion_como_pronunciar' instruccion.nombre %}" ><p>{{ instruccion.nombre }}</p> </a>
+            </div> 
+        {% endfor %}
+    </div> 
+</div>
+{% endblock content %}

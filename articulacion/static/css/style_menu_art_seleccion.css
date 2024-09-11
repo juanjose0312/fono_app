@@ -1,5 +1,40 @@
+.grid-container {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    gap: 20px; 
+    padding: 20px;
+    width: 90%; 
+    box-sizing: border-box; 
+}
+
+
+.grid-item {
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(230, 118, 67, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box; 
+}
+
+.grid-item a {
+    text-decoration: none;
+    color: #ff8800;
+    font-size: 7rem; 
+}
+
+.grid-item:hover {
+    background-color: #f7ab31; 
+}
+
+
 h2 {
     color: var(--color-titulo);
     font-size: var(--font-size-titulo);
+    margin-bottom: 20px;
     text-align: center;
+
 }

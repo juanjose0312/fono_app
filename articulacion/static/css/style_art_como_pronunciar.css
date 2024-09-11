@@ -2,8 +2,6 @@
     margin-bottom: 2vh;
 } 
 
-
-
 /* Título principal */
 h2 {
     color: var(--color-titulo);
@@ -16,6 +14,7 @@ h3 {
     color: var(--color-subtitulo);
     font-size: var(--font-size-subtitulo);
     text-align: center;
+
 }
 
 /* Párrafo de las instrucciones */
@@ -31,6 +30,13 @@ video {
     display: block; /* Hace que el video se centre horizontalmente */
 }
 
+.contend a {
+    color: var(--color-parrafo);
+    font-size: var(--font-size-parrafo);
+    text-align: center;
+    text-decoration: none;
+}
+
 .content_image {
     width: 60vw;
     display: flex;
@@ -41,3 +47,12 @@ video {
 img {
     width: 30vw;
 } 
+
+h4 {
+    color: var(--color-subtitulo);
+    font-size: var(--font-size-subtitulo);
+    text-align: center;
+    text-decoration: none;
+}
+
+

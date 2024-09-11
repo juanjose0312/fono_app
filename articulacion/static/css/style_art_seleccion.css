@@ -4,12 +4,14 @@ h2 {
     text-align: center;
 }
 
+
 /* Subtítulos de las instrucciones */
 h3 {
     color: var(--color-subtitulo);
     font-size: var(--font-size-subtitulo);
     text-align: center;
     margin-top: 20px;
+    text-decoration: none; 
 }
 
 /* Párrafo de las instrucciones */

@@ -1,5 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
+from django.views.generic.list import ListView
+from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 from .forms import CustomUserCreationForm
 
@@ -16,3 +18,8 @@ class RegisterView(FormView):
 #        login(self.request, user)
 #
 #        return super().form_valid(form)
+
+class ProfileView(ListView):
+    template_name = 'users/profile.html'
+    model = User
+    context_object_name = 'users'
