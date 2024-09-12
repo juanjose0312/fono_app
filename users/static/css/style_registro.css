@@ -56,6 +56,7 @@ p {
     font-size: var(--font-size-parrafo);
     margin-bottom: 20px;
     color: #333;
+
 }
 
 form div {
@@ -65,8 +66,60 @@ form div {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #666;
+    color: var(--color-subtitulo);
     font-size: var(--font-size-parrafo);
+    font-weight: bold ;
+}
+#id_password1_helptext ul li{
+    display: block;
+    margin-bottom: 5px;
+    padding: 7px;
+    color: var(--color-parrafo);
+    font-size: var(--font-size-parrafo);
+    font-weight: bold ;
+    text-align: left;
+}
+#id_password2_helptext {
+    display: block;
+    margin-bottom: 5px;
+    padding: 7px;
+    color: var(--color-parrafo);
+    font-size: var(--font-size-parrafo);
+    font-weight: bold ;
+    text-align: left;
+
+}
+#id_username_helptext {
+    display: block;
+    margin-bottom: 5px;
+    padding: 7px;
+    color: var(--color-parrafo);
+    font-size: var(--font-size-parrafo);
+    font-weight: bold ;
+    text-align: left;
+
+}
+#id_usable_password_helptext {
+    display: none;
+
+}
+#id_usable_password {
+    display: none;
+
+}
+#id_usable_password_0 {
+    display: none;
+
+}
+fieldset {
+    display: none;
+}
+.helptext {
+    font-size: var(--font-size-parrafo);
+    color: #666;
+    margin-bottom: 10px;
+    text-align: center;
+
 }
 
 input {
