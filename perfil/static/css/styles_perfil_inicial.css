@@ -15,9 +15,15 @@ h2 {
 
 h3 {
     color: var(--color-subtitulo);
-    font-size: var(--font-size-subtitulo);
+    font-size: var(--font-size-subtitulo);  
     text-align: center;
     margin-top: 20px;
     text-decoration: none; 
 }
 
+p {
+    color: var(--color-texto);
+    font-size: var(--font-size-subtitulo);
+    text-align: center;
+    margin-top: 20px;
+}

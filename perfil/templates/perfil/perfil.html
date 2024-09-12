@@ -2,19 +2,41 @@
 {% load static %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/style_perfil_inicial.css' %}">  
+    <link rel="stylesheet" href="{% static 'css/styles_perfil_inicial.css' %}">  
 {% endblock extra_styles %}
 
 {% block content %}
 <div class="content">
     <h2>Perfil</h2>
     {% for user in  users %}
-        <h3>nombre:</h3> <p>{{user.firstname}}</p>
-        <h3>apellido: </h3> <p>{{user.last_name}}</p>
-        <h3>email:</h3> <p>{{user.email}}</p>
-        <h3>fecha de nacimiento:</h3> <p>{{user.date_of_birth}}</p>
-        <h3>genero:</h3> <p>{{user.gender}}</p>
-        <h3>escolaridad:</h3> <p>{{user.escolaridad}}</p>   
+        <div>
+            <h3>numero de idetificacion:</h3>
+            <p>{{user.username}}</p>
+        </div>
+        <div>
+            <h3>nombre:</h3>
+            <p>{{user.first_name}}</p>
+        </div>
+        <div>
+            <h3>apellido: </h3>
+            <p>{{user.last_name}}</p>
+        </div>
+        <div>
+            <h3>email:</h3>
+            <p>{{user.email}}</p>
+        </div>
+        <div>
+            <h3>fecha de nacimiento:</h3>
+            <p>{{user.date_of_birth}}</p>
+        </div>
+        <div>
+            <h3>genero:</h3>
+            <p>{{user.gender}}</p>
+        </div>
+        <div>
+            <h3>escolaridad:</h3>
+            <p>{{user.escolaridad}}</p>
+        </div>
     {% endfor %}
     
     <h3>Selecciona una opcion</h3>

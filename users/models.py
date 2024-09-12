@@ -1,15 +1,22 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.contrib.auth.models import User
 
-# Create your models here.
-class Perfil(models.Model):
-    username = models.OneToOneField(User, on_delete=models.CASCADE)
-    email = models.EmailField()
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    date_of_birth = models.DateField
-    gendet = models.CharField(max_length=30)
+class CustomUser(AbstractUser):
+    date_of_birth = models.DateField(null=True, blank=True)
+    gender = models.CharField(max_length=30)
     escolaridad = models.CharField(max_length=40)
 
-    def __str__(self):
-        return self.username.username
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='customuser_set',  # Cambia el related_name para evitar conflictos
+        blank=True,
+        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
+        related_query_name='customuser',
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='customuser_set',  # Cambia el related_name para evitar conflictos
+        blank=True,
+        help_text='Specific permissions for this user.',
+        related_query_name='customuser',
+    )

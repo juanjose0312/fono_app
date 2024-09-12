@@ -9,62 +9,14 @@
     <title>Registro de Usuario</title>
 
 </head>
-
-
 <body>
-<div class="content">
-    <h2>Registro</h2>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.non_field_errors }}
-        <div>
-            <label for="{{ form.username.id_for_label }}">Nombre de usuario:</label>
-            {{ form.username }}
-
-        </div>
-        <div>
-
-            <label for="{{ form.email.id_for_label }}">Correo electrónico:</label>
-            {{ form.email }}
-
-        </div>
-        <div>
-
-            <label for="{{ form.first_name.id_for_label }}">Nombre:</label>
-            {{ form.first_name }}
-
-        </div>
-            
-        <div>
-            <label for="{{ form.last_name.id_for_label }}">Apellido:</label>
-            {{ form.last_name }}
-        </div>
-        <div>
-            <label for="{{ form.date_of_birth.id_for_label }}">Fecha de nacimiento:</label>
-            {{ form.date_of_birth }}
-        </div>
-        <div>
-            <label for="{{ form.gender.id_for_label }}">Género:</label>
-            {{ form.gender }}
-        </div>
-        <div>
-            <label for="{{ form.escolaridad.id_for_label }}">Nivel Escolar:</label>
-            {{ form.escolaridad }}
-        </div>
-
-        <div>
-            <label for="{{ form.password1.id_for_label }}">Contraseña:</label>
-            {{ form.password1 }}
-        </div>
-        
-        <div>
-            <label for="{{ form.password2.id_for_label }}">Confirmar contraseña:</label>
-            {{ form.password2 }}
-        </div>
-
-
-        <button type="submit">Registro</button>
-    </form>
+    <div class="content">
+        <h2>REGISTRO DE USUARIO</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_div}}
+            <button type="submit">Registrarse</button>
+        </form>
+    </div>
 </body>
-
 </html>
