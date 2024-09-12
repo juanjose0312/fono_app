@@ -18,10 +18,13 @@ class CustomUserCreationForm(UserCreationForm):
         ('5', 'Quinto'),
     ]
     
-    date_of_birth = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}))
-    gender = forms.ChoiceField(choices=GENDER_CHOICES, required=True)
+    fecha_de_nacimiento = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}))
+    genero = forms.ChoiceField(choices=GENDER_CHOICES, required=True)
     escolaridad = forms.ChoiceField(choices=ESCOLARIDAD_CHOICES, required=True)
+    numero_de_identificacion = forms.CharField(max_length=20, required=False)
+    nombre_acudiente = forms.CharField(max_length=50, required=False)
+    telefono_acudiente = forms.CharField(max_length=20, required=False)
 
     class Meta:
         model = CustomUser
-        fields = ('username', 'email', 'first_name', 'last_name', 'date_of_birth', 'gender', 'escolaridad', 'password1', 'password2')
+        fields = ('username', 'email', 'password1', 'password2', 'fecha_de_nacimiento', 'genero', 'escolaridad', 'numero_de_identificacion', 'nombre_acudiente', 'telefono_acudiente')

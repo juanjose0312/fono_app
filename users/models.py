@@ -3,8 +3,11 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     date_of_birth = models.DateField(null=True, blank=True)
-    gender = models.CharField(max_length=30)
-    escolaridad = models.CharField(max_length=40)
+    gender = models.CharField(max_length=30, null=True)
+    escolaridad = models.CharField(max_length=40, null=True)
+    numero_de_identificacion = models.CharField(max_length=20, null=True)
+    nombre_acudiente = models.CharField(max_length=50, null=True)
+    telefono_acudiente = models.CharField(max_length=20, null=True)
 
     groups = models.ManyToManyField(
         'auth.Group',
