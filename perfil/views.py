@@ -8,5 +8,5 @@ class PerfilView(LoginRequiredMixin, ListView):
     template_name = 'perfil/perfil.html'
     context_object_name = 'users'
 
-    def get_object(self, queryset=None):
+    def get_queryset(self):
         return CustomUser.objects.filter(username=self.request.user.username)
