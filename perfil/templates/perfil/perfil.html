@@ -2,61 +2,69 @@
 {% load static %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/styles_perfil_inicial.css' %}">  
+    <link rel="stylesheet" href="{% static 'css/styles_perfil_i.css' %}">  
 {% endblock extra_styles %}
 
 {% block content %}
 <div class="content">
     <h2>Perfil</h2>
+    <div class="barra" >
+    </div>
+    <div class "datos">
     {% for user in  users %}
         <div>
-            <h3>numero de idetificacion:</h3>
+            <h3>Número de idetificación:</h3>
             <p>{{user.username}}</p>
         </div>
         <div>
-            <h3>nombre:</h3>
+            <h3>Nombre:</h3>
             <p>{{user.first_name}}</p>
         </div>
         <div>
-            <h3>apellido: </h3>
+            <h3>Apellido: </h3>
             <p>{{user.last_name}}</p>
         </div>
         <div>
-            <h3>email:</h3>
+            <h3>Email:</h3>
             <p>{{user.email}}</p>
         </div>
         <div>
-            <h3>fecha de nacimiento:</h3>
+            <h3>Fecha de nacimiento:</h3>
             <p>{{user.date_of_birth}}</p>
         </div>
-        <div>
-            <h3>genero:</h3>
+        <div >
+            <h3>Género:</h3>
             <p>{{user.gender}}</p>
         </div>
         <div>
-            <h3>escolaridad:</h3>
+            <h3>Escolaridad:</h3>
             <p>{{user.escolaridad}}</p>
         </div>
     {% endfor %}
+    </div>
     
-    <h3>Selecciona una opcion</h3>
+    <div class="barra" >
+    </div> 
 
-    <ul>
+    <h2>Actividades</h2>
+    <h3>Selecciona una opción</h3>
 
-        <li><a href="{% url "respiracion_instrucciones" %}">Respiracion</a></li>
+    <ul class="lista">
+
+        <li><a href="{% url "respiracion_instrucciones" %}">Respiración</a></li>
 
         {% comment %} <a href="{% url "fonacion" %}">fonacion</a> {% endcomment %}
         {% comment %}  <a href="{% url "resonancia" %}">resonancia</a> {% endcomment %}
 
-        <li><a href="{% url "menu_articulacion_pronunciar" %}">Articulacion como pronunciar</a></li>
-        <li><a href="{% url "menu_articulacion_seleccion" %}">Articulacion seleccionar</a></li>
-        <li><a href="{% url "menu_articulacion_completar"  %}">Articulacion completar</a></li>
+        <li><a href="{% url "menu_articulacion_pronunciar" %}">Articulación como pronunciar</a></li>
+        <li><a href="{% url "menu_articulacion_seleccion" %}">Articulación seleccionar</a></li>
+        <li><a href="{% url "menu_articulacion_completar"  %}">Articulación completar</a></li>
 
-        <li><a href="{% url "prosodia_cancion" %}">Prosodia cancion</a></li>
+        <li><a href="{% url "prosodia_cancion" %}">Prosodia canción</a></li>
         <li><a href="{% url "prosodia_trabalenguas" %}">Prosodia trabalenguas</a></li>
 
-        <li><a href="{% url "discriminacion_auditiva_escoger" %}">Discriminacion auditiva escoger</a></li>
-        <li><a href="{% url "discriminacion_auditiva_seleccionar" %}">Discriminacion auditiva seleccionar</a></li>
+        <li><a href="{% url "discriminacion_auditiva_escoger" %}">Discriminación auditiva escoger</a></li>
+        <li><a href="{% url "discriminacion_auditiva_seleccionar" %}">Discriminación auditiva seleccionar</a></li>
     </ul>
 </div>
 {% endblock content %}
