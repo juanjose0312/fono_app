@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'discriminacion_auditiva',
     'users',
     'perfil',
-
 ]
 
 MIDDLEWARE = [

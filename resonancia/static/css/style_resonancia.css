@@ -1,0 +1,40 @@
+/* Define the grid container */
+.rendija {
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 6 columns */
+    gap: 10px; /* Space between grid items */
+    padding: 20px;
+    background-color: #f0f0f0; /* Background color for the grid */
+}
+
+/* Style for the filled notes */
+.nota {
+    background-color: #4caf50; /* Green background for notes */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh; /* Height of each grid item */
+    border-radius: 5px;
+}
+
+.nota p {
+    font-size: var(--font-size-subtitulo); /* Font size for the notes */
+}
+
+/* Style for the empty slots */
+.casilla_vacia {
+    background-color: #e0e0e0; /* Light grey background for empty slots */
+    color: #757575;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh; /* Height of each grid item */ 
+    border-radius: 5px;
+}
+
+/* Additional styles for specific notes if needed */
+.nota_1 { background-color: #ff5722; } /* Example: different color for note 1 */
+.nota_2 { background-color: #2196f3; } /* Example: different color for note 2 */
+/* Add more styles for other notes as needed */
