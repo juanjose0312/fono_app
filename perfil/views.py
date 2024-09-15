@@ -1,12 +1,13 @@
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from users.models import CustomUser
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 class PerfilView(LoginRequiredMixin, ListView):
-    model = CustomUser
+    model = User
     template_name = 'perfil/perfil.html'
     context_object_name = 'users'
 
     def get_queryset(self):
-        return CustomUser.objects.filter(username=self.request.user.username)
+        return User.objects.filter(username=self.request.user.username)
