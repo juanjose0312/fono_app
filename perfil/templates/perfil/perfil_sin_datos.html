@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/styles_perfil_sin_datos.css' %}">  
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="content">
+    <h2>Termina de hacer tu registro ahora, ya estas a un paso.</h2>
+        <li><a href="{% url "perfil_formulario" %}">Ultimo paso</a></li>
+</div>
+{% endblock content %}
