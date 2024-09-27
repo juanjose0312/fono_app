@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/styles_perfil_formilario.css' %}">  
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="content">
+    <h2>Datos para perfil</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" id="button_sender">Guardar</button>
+    </form>
+</div>
+{% endblock content %}

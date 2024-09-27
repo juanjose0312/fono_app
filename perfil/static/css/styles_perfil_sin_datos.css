@@ -1,0 +1,24 @@
+h2 {
+    color: #000000;
+    font-size: var(--font-size-subtitulo);
+    margin-bottom: 1.5vw;
+    text-align: center;
+}
+li {
+    width: 80vw;
+    height: 5vh;
+    margin-top: 1.5vh;
+    font-size: 7rem;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: #ff6347;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-texto);
+}

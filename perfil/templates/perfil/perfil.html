@@ -11,36 +11,46 @@
     <div class="barra" >
     </div>
     <div class "datos">
-    {% for user in  users %}
+    {% comment %} {% for perfil in  perfiles %} {% endcomment %}
+    <div>
+        <h3>Nombre:</h3>
+        <p>{{perfil.nombre}}</p>
+    </div>
+    <div>
+        <h3>Apellido:</h3>
+        <p>{{perfil.apellido}}</p>
+    </div>
         <div>
-            <h3>Número de idetificación:</h3>
-            <p>{{user.username}}</p>
+            <h3>Numero de identificacion:</h3>
+            <p>{{perfil.numero_de_idetificacion}}</p>
         </div>
-        <div>
-            <h3>Nombre:</h3>
-            <p>{{user.first_name}}</p>
-        </div>
-        <div>
-            <h3>Apellido: </h3>
-            <p>{{user.last_name}}</p>
-        </div>
+
         <div>
             <h3>Email:</h3>
-            <p>{{user.email}}</p>
+            <p>{{perfil.email}}</p>
         </div>
         <div>
             <h3>Fecha de nacimiento:</h3>
-            <p>{{user.date_of_birth}}</p>
+            <p>{{perfil.fecha_de_nacimiento}}</p>
         </div>
-        <div >
-            <h3>Género:</h3>
-            <p>{{user.gender}}</p>
+        <div>
+            <h3>Genero:</h3>
+            <p>{{perfil.genero}}</p>
         </div>
         <div>
             <h3>Escolaridad:</h3>
-            <p>{{user.escolaridad}}</p>
+            <p>{{perfil.escolaridad}}</p>
         </div>
-    {% endfor %}
+        <div>
+            <h3>Nombre acuediente:</h3>
+            <p>{{perfil.nombre_acudiente}}</p>
+        </div>
+        <div>
+            <h3>Celular acudiente:</h3>
+            <p>{{perfil.telefono_acudiente}}</p>
+        </div>
+
+    {% comment %} {% endfor %} {% endcomment %}
     </div>
     
     <div class="barra" >

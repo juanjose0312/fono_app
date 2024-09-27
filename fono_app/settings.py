@@ -146,6 +146,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-
-# nueva base de datos para el usuario
-AUTH_USER_MODEL = 'users.CustomUser'
