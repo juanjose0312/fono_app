@@ -3,6 +3,7 @@
 
 {% block extra_styles %}
     <link rel="stylesheet" href="{% static 'css/style_prosodia_cancion.css' %}">  
+    <script src="{% static 'js/grabar_audio.js' %}" defer></script>
 {% endblock extra_styles %}
 
 {% block content %}
@@ -15,36 +16,37 @@
         <p>Nombre de la canción : </p>
         <h3>{{instruccion.nombre}}</h3>
         <p>{{instruccion.parrafo_1}}</p>
-        
-        <button class="mic-button">
-            <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
-        </button>
+
+        <button id="recordButton" class="mic-button">Start Recording</button>
+        <p id="status"></p>
+        <p id="resultado"></p>
+
         {% if instruccion.parrafo_2 != "0" %}
             <p>{{instruccion.parrafo_2}}</p>
-            <button class="mic-button">
-                <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
-            </button>       
+            <button id="recordButton_2" class="mic-button">Start Recording</button>
+            <p id="status_2"></p>
+            <p id="resultado_2"></p>       
         {% endif %}
 
         {% if instruccion.parrafo_3 != "0" %}
             <p>{{instruccion.parrafo_3}}</p>
-            <button class="mic-button">
-                <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
-            </button>
+            <button id="recordButton_3" class="mic-button">Start Recording</button>
+            <p id="status_3"></p>
+            <p id="resultado_3"></p>
         {% endif %}
 
         {% if instruccion.parrafo_4 != "0" %}
             <p>{{instruccion.parrafo_4}}</p>
-            <button class="mic-button">
-                <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
-            </button>
+            <button id="recordButton_4" class="mic-button">S
+            <p id="status_4"></p>
+            <p id="resultado_4"></p>
         {% endif %}
         
         {% if instruccion.parrafo_5 != "0" %}
             <p>{{instruccion.parrafo_5}}</p>
-            <button class="mic-button">
-                <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
-            </button>   
+            <button id="recordButton_5" class="mic-button">Start Recording</button>
+            <p id="status_5"></p>
+            <p id="resultado_5"></p>
         {% endif %}
 
     </li>
