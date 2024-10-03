@@ -11,27 +11,20 @@ from django.shortcuts import render
 
 from .models import Prosodia_cancion_info, Prosodia_trabalenguas_info
 from .serializer import ProsodiaCancionInfoSerializer, ProsodiaTrabalenguasInfoSerializer
-
-## Create your views here.
-#class Prosodia_cancion_view(LoginRequiredMixin, ListView):
-#    model = Prosodia_cancion_info
-#    template_name = 'prosodia/prosodia_cancion.html'
-#    context_object_name = 'instrucciones'
-#
-#    def get_queryset(self):
-#        longitud = len(Prosodia_cancion_info.objects.all())
-#        modulo_seleccionado = random.randint(1, longitud)
-#        queryset = Prosodia_cancion_info.objects.all()[modulo_seleccionado-1:modulo_seleccionado]  
-#        
-#        return queryset
     
 class ProsodiaCancionAPIView(APIView):
     permission_classes = [IsAuthenticated]
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.modulo_seleccionado = random.randint(
+            1,
+            Prosodia_cancion_info.objects.count()
+        )
+        
     
     def get(self, request, format=None):
-        longitud = Prosodia_cancion_info.objects.count()
-        modulo_seleccionado = random.randint(1, longitud)
-        queryset = Prosodia_cancion_info.objects.all()[modulo_seleccionado-1:modulo_seleccionado]
+        queryset = Prosodia_cancion_info.objects.all()[self.modulo_seleccionado-1:self.modulo_seleccionado]
         # Contexto para pasar al template
         context = {
             'instrucciones': queryset
@@ -43,9 +36,12 @@ class ProsodiaCancionAPIView(APIView):
     def post(self, request, *args, **kwargs):
         if 'audio' not in request.FILES:
             return Response({'result': 'No se recibió ningún archivo de audio.'}, status=status.HTTP_400_BAD_REQUEST)
+        if 'idbutton' not in request.POST:
+            return Response({'result': 'No se recibió ningún id de botón.'}, status=status.HTTP_400_BAD_REQUEST)
 
         # Leer el archivo de audio desde la solicitud
         audio_file = request.FILES['audio']
+        idbutton = request.POST['idbutton']
         
         # Convertir el archivo de audio a formato compatible con SpeechRecognition
         audio = AudioSegment.from_file(BytesIO(audio_file.read()))
@@ -58,10 +54,13 @@ class ProsodiaCancionAPIView(APIView):
             try:
                 # Realizar reconocimiento de voz
                 texto = recognizer.recognize_google(audio_data, language='es-ES') 
-                print(f"Texto reconocido: {texto}")
 
                 # Palabra objetivo para verificar
-                palabra_objetivo = "hola"
+                num_parrafo = idbutton.split('_')[1]
+                query_set = list(Prosodia_cancion_info.objects.all()[self.modulo_seleccionado-1:self.modulo_seleccionado])
+                query = getattr(query_set[0], f'respuesta_{num_parrafo}')
+
+                palabra_objetivo = query
                 if texto.lower() == palabra_objetivo.lower():
                     result = "Exitoso"
                 else:
@@ -73,18 +72,6 @@ class ProsodiaCancionAPIView(APIView):
                 result = f"Error al conectar con el servicio de reconocimiento de voz: {e}"
 
         return Response({'result': result})
-
-#class Prosodia_trabalenguas_view(LoginRequiredMixin, ListView):
-#    model = Prosodia_trabalenguas_info
-#    template_name = 'prosodia/prosodia_trabalenguas.html'
-#    context_object_name = 'instrucciones'
-#
-#    def get_queryset(self):
-#        longitud = len(Prosodia_trabalenguas_info.objects.all())
-#        modulo_seleccionado = random.randint(1, longitud)
-#        queryset = Prosodia_trabalenguas_info.objects.all()[modulo_seleccionado-1:modulo_seleccionado]  
-#        
-#        return queryset 
 
 class ProsodiaTrabalenguasAPIView(APIView):
     permission_classes = [IsAuthenticated]
