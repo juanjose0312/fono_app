@@ -17,9 +17,9 @@
         <h3>{{instruccion.nombre}}</h3>
         <p>{{instruccion.parrafo_1}}</p>
 
-        <button id="recordButton" class="mic-button">Start Recording</button>
-        <p id="status"></p>
-        <p id="resultado"></p>
+        <button id="recordButton_1" class="mic-button">Start Recording</button>
+        <p id="status_1"></p>
+        <p id="resultado_1"></p>
 
         {% if instruccion.parrafo_2 != "0" %}
             <p>{{instruccion.parrafo_2}}</p>
@@ -37,7 +37,7 @@
 
         {% if instruccion.parrafo_4 != "0" %}
             <p>{{instruccion.parrafo_4}}</p>
-            <button id="recordButton_4" class="mic-button">S
+            <button id="recordButton_4" class="mic-button">Start Recording</button>
             <p id="status_4"></p>
             <p id="resultado_4"></p>
         {% endif %}
