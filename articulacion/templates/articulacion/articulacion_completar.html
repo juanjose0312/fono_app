@@ -25,9 +25,9 @@
         <li>
             <img src="{{ instruccion.imagen.url }}" alt="imagen">
             <p>{{ instruccion.texto_incompleto }} </p>
-            <button class="mic-button">
-                <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
-            </button>
+            <button id="recordButton_1" class="mic-button">Start Recording</button>
+            <p id="status_1"></p>
+            <p id="resultado_1"></p>
         </li>
     {%endfor%}
     </ul>   

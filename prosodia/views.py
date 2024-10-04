@@ -11,28 +11,8 @@ from django.shortcuts import render
 
 from .models import Prosodia_cancion_info, Prosodia_trabalenguas_info
 from .serializer import ProsodiaCancionInfoSerializer, ProsodiaTrabalenguasInfoSerializer
-    
-class ProsodiaCancionAPIView(APIView):
-    permission_classes = [IsAuthenticated]
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        cantidad_modulos = Prosodia_cancion_info.objects.count()
-        modulo_numero = random.randint(1,cantidad_modulos)
-        self.queryset = Prosodia_cancion_info.objects.all()[modulo_numero-1:modulo_numero]
-        
-    
-    def get(self, request, format=None):
-        
-        # Contexto para pasar al template
-        context = {
-            'instrucciones': self.queryset
-        }
-        
-        # Renderiza el template HTML con el contexto
-        return render(request, 'prosodia/prosodia_cancion.html', context)
-    
-    def audio_a_texto(self, audio_file):
+def audio_a_texto(audio_file):
         """"
         Función para convertir un archivo de audio a texto.
 
@@ -59,8 +39,27 @@ class ProsodiaCancionAPIView(APIView):
                 estado = False
         
         return result, estado
+    
+class ProsodiaCancionAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        cantidad_modulos = Prosodia_cancion_info.objects.count()
+        modulo_numero = random.randint(1,cantidad_modulos)
+        self.queryset = Prosodia_cancion_info.objects.all()[modulo_numero-1:modulo_numero]
         
     
+    def get(self, request, format=None):
+        
+        # Contexto para pasar al template
+        context = {
+            'instrucciones': self.queryset
+        }
+        
+        # Renderiza el template HTML con el contexto
+        return render(request, 'prosodia/prosodia_cancion.html', context)
+        
     def post(self, request, *args, **kwargs):
         if 'audio' not in request.FILES:
             return Response({'result': 'No se recibió ningún archivo de audio.'}, status=status.HTTP_400_BAD_REQUEST)
@@ -74,7 +73,7 @@ class ProsodiaCancionAPIView(APIView):
         # Palabra objetivo para verificar
         num_parrafo = idbutton.split('_')[1]
         palabra_correcta = getattr(self.queryset[0], f'respuesta_{num_parrafo}')
-        palabra_audio, estado = self.audio_a_texto(audio_file)
+        palabra_audio, estado = audio_a_texto(audio_file)
         
         if estado:
             if palabra_audio == palabra_correcta.lower():
@@ -92,9 +91,42 @@ class ProsodiaCancionAPIView(APIView):
 class ProsodiaTrabalenguasAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, format=None):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
         longitud = Prosodia_trabalenguas_info.objects.count()
         modulo_seleccionado = random.randint(1, longitud)
-        queryset = Prosodia_trabalenguas_info.objects.all()[modulo_seleccionado-1:modulo_seleccionado]
-        serializer = ProsodiaTrabalenguasInfoSerializer(queryset, many=True)
-        return Response(serializer.data)
+        self.queryset = Prosodia_trabalenguas_info.objects.all()[modulo_seleccionado-1:modulo_seleccionado]
+    
+    def get(self, request, format=None):
+        
+        # Contexto para pasar al template
+        context = {
+            'instrucciones': self.queryset
+        }
+        
+        # Renderiza el template HTML con el contexto
+        return render(request, 'prosodia/prosodia_trabalenguas.html', context)
+    
+    def post(self, request, *args, **kwargs):
+        if 'audio' not in request.FILES:
+            return Response({'result': 'No se recibió ningún archivo de audio.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Leer el archivo de audio desde la solicitud
+        audio_file = request.FILES['audio']
+
+        # Palabra objetivo para verificar
+        palabra_correcta = self.queryset[0].transcripcion_trabalenguas
+        palabra_audio, estado = audio_a_texto(audio_file)
+        
+        if estado:
+            if palabra_audio == palabra_correcta.lower():
+                # Verificar si el texto es igual a la palabra objetivo
+                result = "¡Correcto!"
+            else:
+                # Si el texto no es igual a la palabra objetivo
+                result = f"¡Incorrecto! dijiste {palabra_audio}"
+        else:
+            # Si no se pudo entender el audio o fallo el servidor de reconocimiento de voz
+            result = palabra_audio
+
+        return Response({'result': result})

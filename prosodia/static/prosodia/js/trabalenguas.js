@@ -23,7 +23,7 @@ function FuncionBoton(idbutton, idstatus, idresultado) {
                     formData.append('audio', audioBlob, 'grabacion.wav'); // Añadir el Blob de audio al FormData
 
                     // Enviar el FormData al servidor usando fetch
-                    fetch('http://127.0.0.1:8000/prosodia/prosodia_cancion/', {
+                    fetch('http://127.0.0.1:8000/prosodia/prosodia_trabalenguas/', {
                         method: 'POST', // Especificar el método HTTP como POST
                         headers: {
                             'X-CSRFToken': getCookie('csrftoken') // Incluir el token CSRF en los encabezados
@@ -48,7 +48,7 @@ function FuncionBoton(idbutton, idstatus, idresultado) {
     else{
         mediaRecorder.stop(); // Detener la grabación
         isRecording = false; // Actualizar el estado de grabación
-        document.getElementById('status').textContent = 'Grabación detenida'; // Actualizar el texto de estado
+        document.getElementById(idstatus).textContent = 'Grabación detenida'; // Actualizar el texto de estado
     }
 };    
 
@@ -68,7 +68,3 @@ function getCookie(name) {
 }
 
 document.getElementById('recordButton_1').addEventListener('click', () => FuncionBoton("recordButton_1", "status_1", "resultado_1"));
-document.getElementById('recordButton_2').addEventListener('click', () => FuncionBoton("recordButton_2", "status_2", "resultado_2"));
-document.getElementById('recordButton_3').addEventListener('click', () => FuncionBoton("recordButton_3", "status_3", "resultado_3"));
-document.getElementById('recordButton_4').addEventListener('click', () => FuncionBoton("recordButton_4", "status_4", "resultado_4"));
-document.getElementById('recordButton_5').addEventListener('click', () => FuncionBoton("recordButton_5", "status_5", "resultado_5"));
