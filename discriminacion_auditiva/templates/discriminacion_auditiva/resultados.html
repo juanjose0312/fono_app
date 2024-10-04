@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_styles %}
+<link rel="stylesheet" href="{% static 'css/style_dis_aud_esc_resultados.css' %}">
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="content">
+    <h2>Discriminación auditiva escoger</h2>
+    <h3>Resultados</h3>
+    <ul>
+    {% for resultado in resultados %}
+        <li>
+            <div class="image-container">
+                <img src="{{ resultado.seleccion }}" alt="imagen seleccionada">
+                {% if resultado.es_correcta %}
+                    <p class="correcto">¡Correcto!</p>
+                {% else %}
+                    <p class="incorrecto">Incorrecto. La imagen correcta era:</p>
+                    <div class="image-container">
+                        <img src="{{ resultado.instruccion.imagen_correcta.url }}" alt="imagen correcta">
+                    </div>
+                {% endif %}
+            </div>
+        </li>
+    {% endfor %}
+    </ul>
+    <div class="volver_intentarlo">
+        <a href="{% url 'discriminacion_auditiva_escoger' %}">Volver a intentar</a>
+    </div>
+</div>
+{% endblock content %}

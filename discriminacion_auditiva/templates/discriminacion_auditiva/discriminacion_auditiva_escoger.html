@@ -1,26 +1,60 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/style_dis_auditiva_escoger.css' %}">  
+<link rel="stylesheet" href="{% static 'css/style_discriminacion_auditiva_escoger.css' %}">
 {% endblock extra_styles %}
 
 {% block content %}
 <div class="content">
-    <h2>Descriminacion auditiva escoger</h2>
+    <h2>Discriminación Auditiva Escoger</h2>
     <p>Escucha atentamente y elige la imagen correcta</p>
-    <ul>
-    {% for instruccion in instrucciones %}
-    <li>
-        <img src="{{instruccion.imagen_correcta.url}}" alt="imagen correcta">
-        <audio controls>
-            <source src="{{instruccion.audio.url}}" type="audio/mp3" >
-        </audio>
-        <img src="{{instruccion.imagen_incorrecta.url}}" alt="imagen incorrecta">   
-    </li>
+    <form method="post" action="{% url 'discriminacion_auditiva_escoger' %}">
+        {% csrf_token %}
+        <ul>
+        {% for instruccion in instrucciones %}
+        <li>
+            <div>
+                <input type="radio" id="correcta_{{ forloop.counter }}" name="seleccion_{{ forloop.counter }}" value="{{ instruccion.imagen_correcta.url }}" required>
+                <label for="correcta_{{ forloop.counter }}">
+                    <img src="{{ instruccion.imagen_correcta.url }}" alt="imagen correcta">
+                </label>
+            </div>
 
-    {% endfor %}
-    </ul>   
+            <button type="button" onclick="playAudio('{{ instruccion.audio.url }}', {{ forloop.counter }})">Play</button>
+            <audio id="audio_{{ forloop.counter }}">
+                <source src="{{ instruccion.audio.url }}" type="audio/mp3">
+            </audio>
+
+            <div>
+                <input type="radio" id="incorrecta_{{ forloop.counter }}" name="seleccion_{{ forloop.counter }}" value="{{ instruccion.imagen_incorrecta.url }}" required>
+                <label for="incorrecta_{{ forloop.counter }}">
+                    <img src="{{ instruccion.imagen_incorrecta.url }}" alt="imagen incorrecta">
+                </label>
+            </div>
+            <input type="hidden" name="instruccion_id_{{ forloop.counter }}" value="{{ instruccion.id }}">
+        </li>
+        {% endfor %}
+        </ul>
+        <button class="form__button" type="submit">Enviar</button>
+    </form>
 </div>
 
-{% endblock content %} 
+<script>
+    let currentAudio = null;
+
+    function playAudio(url, id) {
+        // Pausa el audio actual si existe
+        if (currentAudio && !currentAudio.paused) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+
+        // Reproduce el nuevo audio
+        const audioElement = document.getElementById('audio_' + id);
+        currentAudio = audioElement;
+        audioElement.play();
+    }
+</script>
+
+{% endblock content %}

@@ -3,6 +3,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Discriminacion_auditiva_escoger_info
 from .models import Discriminacion_auditiva_seleccionar_info
 import random
+from django.shortcuts import render
+
 
 # Create your views here.
 class Discriminacion_auditiva_escoger_view(LoginRequiredMixin, ListView):
@@ -14,19 +16,35 @@ class Discriminacion_auditiva_escoger_view(LoginRequiredMixin, ListView):
         # modelo con el que se va a trabajar
         model = Discriminacion_auditiva_escoger_info.objects
 
-        # extrae la longitud
+        # extrae la longitud 
         longitud = len(model.all())
 
         if longitud < 4:
             return model.all()
 
         # selecciona 4 numeros aleatorios no repetidos 
-        modulos_seleccionados = random.sample(range(1,longitud), 4) 
+        modulos_seleccionados = random.sample(range(1, longitud + 1), 4) 
 
         # filtra los modulos seleccionados
         queryset = model.filter(id__in=modulos_seleccionados)
 
         return queryset
+
+    def post(self, request, *args, **kwargs):
+        resultados = []
+        for key, value in request.POST.items():
+            if key.startswith('seleccion_'):
+                instruccion_id = request.POST.get(f'instruccion_id_{key.split("_")[1]}')
+                instruccion = Discriminacion_auditiva_escoger_info.objects.get(id=instruccion_id)
+                es_correcta = instruccion.es_imagen_correcta(value)
+                resultados.append({
+                    'instruccion': instruccion,
+                    'seleccion': value,
+                    'es_correcta': es_correcta
+                })
+        return render(request, 'discriminacion_auditiva/resultados.html', {'resultados': resultados})
+    
+
 
 class Discriminacion_auditiva_seleccionar_view(LoginRequiredMixin, ListView):
     model = Discriminacion_auditiva_seleccionar_info

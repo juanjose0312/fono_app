@@ -12,7 +12,7 @@ h3 {
 }
 p {
     color: var(--color-parrafo);
-    font-size: var(--font-size-parrafo);;
+    font-size: var(--font-size-parrafo);
 }   
 
 ul {
@@ -47,4 +47,5 @@ li {
 img {
     width: 15vw;
 } 
+
 

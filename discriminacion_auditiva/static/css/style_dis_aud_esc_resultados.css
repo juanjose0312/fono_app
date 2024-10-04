@@ -1,0 +1,63 @@
+h2 {
+    color: var(--color-titulo);
+    font-size: var(--font-size-titulo);
+    text-align: center;
+}
+
+h3 {
+    color: var(--color-subtitulo);
+    font-size: var(--font-size-titulo);
+    text-align: center;
+}
+
+img {
+    width: 20vw;
+} 
+
+.image-container {
+    display: flex;
+    justify-content: center; 
+
+    align-items: center; 
+    margin-bottom: 1vh; 
+}
+
+.image-container img {
+    width: 20vw; 
+    height: 20vw; 
+}
+p {
+    text-align: center;
+    font-size: var(--font-size-parrafo);
+}
+.correcto {
+    color: green;
+}   
+.incorrecto {
+    color: red;
+}
+a {
+    color: var(--color-subtitulo);
+    font-size: var(--font-size-subtitulo);
+    text-align: center;
+    text-decoration: none;
+}
+
+.volver_intentarlo a {
+    display: inline-block;
+    padding: 10px 20px; 
+    background-color: var(--color-subtitulo); 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    height: 5vh;
+    width: 70vw;
+}
+
+ul {
+    width: 100%;
+}
+.content *{
+    margin-bottom: 2vh;
+}
+

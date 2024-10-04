@@ -9,10 +9,15 @@ class Discriminacion_auditiva_escoger_info(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+    def es_imagen_correcta(self, imagen_url):
+        return self.imagen_correcta.url == imagen_url
+
+    
 class Discriminacion_auditiva_seleccionar_info(models.Model):
     nombre= models.TextField(max_length=100, verbose_name="nombre")
     imagen = models.ImageField(upload_to='fotos/', null=False, verbose_name="imagen")
     audio  = models.FileField(upload_to='audios/', null=False, verbose_name="audio")
 
     def __str__(self):
-        return self.nombre
+        return self.nombre 

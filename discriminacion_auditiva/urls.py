@@ -12,5 +12,5 @@ urlpatterns = [
         'discriminacion_auditiva_seleccionar/',
         Discriminacion_auditiva_seleccionar_view.as_view(),
         name='discriminacion_auditiva_seleccionar'
-    )
+    ),
 ]

@@ -1,0 +1,199 @@
+[33mcommit c080c12a07e41fc28922c3f0e82ec29228d340f2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32msthefania_calificacion[m[33m, [m[1;31morigin/sthefania_calificacion[m[33m)[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Wed Oct 2 19:15:39 2024 -0500
+
+    audio ajustable segun el boton que se presione
+
+[33mcommit ce3cc14221874c5dc0660a8bcc16c97f04992002[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Sun Sep 29 14:49:13 2024 -0500
+
+    conexion de apis para prosodia cancion solo un butons
+
+[33mcommit d91eae534c2c4f3a08da5136c4c4254a6145cc88[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Thu Sep 26 22:59:49 2024 -0500
+
+    segundo ciclo de desarrollo
+
+[33mcommit a1da0dadf26718f247010e09fe4a2e3279127776[m
+Merge: 3af1279 e7e09f8
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Thu Sep 26 22:48:04 2024 -0500
+
+    app finalizada hasta perfil
+
+[33mcommit e7e09f88c657362f2b79b43dcd38e640d1868d23[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Thu Sep 26 17:44:22 2024 -0500
+
+    acople funcionando
+
+[33mcommit 3af12796675605cf82357376a3a97abe9673a79a[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Tue Sep 17 22:26:41 2024 -0500
+
+    cambio de user en proceso
+
+[33mcommit aa4491fbf4ed260256da2a717eea42bee34dbdf0[m[33m ([m[1;31morigin/juan[m[33m, [m[1;31morigin/acople[m[33m)[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Sun Sep 15 18:50:28 2024 -0500
+
+    proceso de perfil fromulario extra
+
+[33mcommit aaa97f69facc0947c0760e1ccaef76b0e1349e93[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Sun Sep 15 17:53:46 2024 -0500
+
+    restablecimiento de user default
+
+[33mcommit 5a76e18171a15fff20f189b9eb6ec6745f9ab3ff[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Thu Sep 12 23:52:27 2024 -0500
+
+    acople revisado 12_09_24
+
+[33mcommit 943f9ebf39940193f7afa3c8bef041ead4cf4b37[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Thu Sep 12 23:43:03 2024 -0500
+
+    git ignore
+
+[33mcommit c5daf3a3bb5d4bab41645cabccdbd54887a1bea0[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Thu Sep 12 22:32:35 2024 -0500
+
+    ultimo juan
+
+[33mcommit 630807ea5a2ed162482ae9978ec08979488984fb[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Thu Sep 12 21:51:58 2024 -0500
+
+    urls, view, html, css de resonancia
+
+[33mcommit 07de08a96ec7356b618d3dc288505188f59d229c[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Thu Sep 12 18:38:26 2024 -0500
+
+    perfil visualisacion unica
+
+[33mcommit 3bb3dfbc585e35d36688ddb43de6b6e3b5f19956[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Thu Sep 12 18:19:00 2024 -0500
+
+    agregar campos al modelo de usuario
+
+[33mcommit 3d25ac81f4acc6dcb90313c999de2e59ac23baae[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Thu Sep 12 12:54:58 2024 -0500
+
+    regitro solucionado y perfil conectado
+
+[33mcommit cf3e0c87fe55cfaca8de8aa1d609b3baddacecec[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Wed Sep 11 01:23:39 2024 -0500
+
+    proceso de formulario
+
+[33mcommit 840ffc85479edd94df4cc20275dfcd005b037cc6[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Tue Sep 10 19:50:15 2024 -0500
+
+    hola
+
+[33mcommit 8118b8875bfe81dc935c4d87f09bd5d0bcb604e9[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Mon Sep 9 00:18:21 2024 -0500
+
+    random unitario  para respiracion y prosodias, randon multiple discriminacion , 1 de 3 menus efectuados art seleccion, css de login
+
+[33mcommit 9560cbb76def9cb14dc6a4eec8024ad5a7fc8523[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Thu Sep 5 02:03:45 2024 -0500
+
+    add all css and update html
+
+[33mcommit 44243e70783a231e6ddf14bcbf48900a85f72bd0[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Tue Sep 3 22:29:53 2024 -0500
+
+    add css, config settig to static files
+
+[33mcommit ebb258d4166049e5d5d376049c1eed4d021a27e0[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Mon Aug 19 11:21:51 2024 -0500
+
+    Se agrego a todas las vistas el LoginRequiredMixin
+
+[33mcommit 855d389a72e394b438ad8f221745bdb157dcca7b[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Mon Aug 19 01:58:10 2024 -0500
+
+    primera version de html terminado
+
+[33mcommit f91ec22a818db0eb33c94ace11754917479d1eb1[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Sun Aug 18 01:36:01 2024 -0500
+
+    template articulacion, modificacion de la view de la comunicacion
+
+[33mcommit 009fedca3289736fc01122683f48e88bd9077a6f[m
+Author: Sthefaniag <sthefaniaguevara.m@academia.umb.edu.co>
+Date:   Sat Aug 17 22:41:32 2024 -0500
+
+    create app_profile + modificate html (articulacion) and models
+
+[33mcommit 15bf9c271e1c4c672e7659c75dee34892fa0a386[m
+Author: Sthefania Guevara <sthefaniaguevara@gmail.com>
+Date:   Sat Aug 17 00:43:20 2024 -0500
+
+    se creo el inicio de session y se subieron los admin para poderlos editar
+
+[33mcommit 25f75b7e7e778265504e97f1c79b7eaeb3447aad[m
+Merge: 4831276 42d9186
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Fri Aug 16 17:43:17 2024 -0500
+
+    Merge branches 'master' and 'master' of https://github.com/juanjose0312/fono_app
+
+[33mcommit 483127601590244c18c65b072fb6921b64f2e000[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Fri Aug 16 17:43:00 2024 -0500
+
+    views, urls, templates de todos los modulos
+
+[33mcommit 42d91869874f49342946568dad067085d25f2e65[m
+Author: Sthefania Guevara <sthefaniaguevara@gmail.com>
+Date:   Sun Aug 11 16:17:31 2024 -0500
+
+    prueba
+
+[33mcommit c0a226643e3f10ea08355fd5eff8673db0bf7456[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Sat Aug 10 21:35:35 2024 -0500
+
+    urls configuradas
+
+[33mcommit 472b717e93278ec47ac0d2af0ecb9d11ab13e349[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Sat Aug 10 21:29:29 2024 -0500
+
+    agregaron aplicaciones intaladas y url apuntando a la archivos de urls de cada app
+
+[33mcommit 7689e6166c8c7b63383ff19e32a70810c8eeea31[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Sat Aug 10 21:07:49 2024 -0500
+
+    se agregaron todos de las apps
+
+[33mcommit 4c08170ff20069f24c2cd9170f8fa66dce361309[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Sat Aug 10 19:33:06 2024 -0500
+
+    se agregaron todas las apps que se van a trabajar
+
+[33mcommit df5fec3ff191dd89f8e521155b301d68d3724c7d[m
+Author: Juan Jose Cardona Gil <cardonagiljuanjose@gmail.com>
+Date:   Sat Aug 10 13:50:53 2024 -0500
+
+    inicio de projetcto
