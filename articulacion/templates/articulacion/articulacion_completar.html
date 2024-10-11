@@ -3,6 +3,7 @@
 
 {% block extra_styles %}
     <link rel="stylesheet" href="{% static 'css/style_art_completar.css' %}">  
+    <script src="{% static 'js/articulacion_completar.js' %}" defer></script>
 {% endblock extra_styles %}
 
 {% block content %}
@@ -25,9 +26,9 @@
         <li>
             <img src="{{ instruccion.imagen.url }}" alt="imagen">
             <p>{{ instruccion.texto_incompleto }} </p>
-            <button id="recordButton_1" class="mic-button">Start Recording</button>
-            <p id="status_1"></p>
-            <p id="resultado_1"></p>
+            <button id="recordButton_{{ forloop.counter }}" class="mic-button" data-letra="{{ instruccion.letra_categoria }}" data-numero="{{ forloop.counter }}" >Start Recording</button>
+            <p id="status_{{ forloop.counter }}"></p>
+            <p id="resultado_{{ forloop.counter }}"></p>
         </li>
     {%endfor%}
     </ul>   

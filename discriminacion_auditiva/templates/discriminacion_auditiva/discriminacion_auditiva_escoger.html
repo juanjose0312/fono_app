@@ -9,18 +9,29 @@
 <div class="content">
     <h2>Descriminacion auditiva escoger</h2>
     <p>Escucha atentamente y elige la imagen correcta</p>
-    <ul>
-    {% for instruccion in instrucciones %}
-    <li>
-        <img src="{{instruccion.imagen_correcta.url}}" alt="imagen correcta">
-        <audio controls>
-            <source src="{{instruccion.audio.url}}" type="audio/mp3" >
-        </audio>
-        <img src="{{instruccion.imagen_incorrecta.url}}" alt="imagen incorrecta">   
-    </li>
-
-    {% endfor %}
-    </ul>   
+    <form method="post" action="{% url 'discriminacion_auditiva_escoger' %}">
+        <ul>
+            {% for instruccion in instrucciones %}
+            <li>
+                {% csrf_token %}
+                <label>
+                    <input type="radio" name="respuesta_{{ forloop.counter }}" value="{{ instruccion.imagen_correcta.url }}">
+                    <img src="{{ instruccion.imagen_correcta.url }}" alt="imagen correcta">
+                </label>
+            
+                <audio controls>
+                    <source src="{{ instruccion.audio.url }}" type="audio/mp3">
+                </audio>
+            
+                <label>
+                    <input type="radio" name="respuesta_{{ forloop.counter }}" value="{{ instruccion.imagen_incorrecta.url }}">
+                    <img src="{{ instruccion.imagen_incorrecta.url }}" alt="imagen incorrecta">
+                </label>
+            </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Enviar respuestas</button>
+    </form>
 </div>
 
 {% endblock content %} 

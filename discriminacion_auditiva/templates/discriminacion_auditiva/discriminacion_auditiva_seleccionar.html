@@ -9,15 +9,26 @@
 <div class="content">
     <h2>Descriminacion auditiva seleccionar</h2>
     <p>Une la imagen al sonido que corresponde </p>
-    <ul>
-    {% for instruccion in instrucciones %}
-        <li>
-            <img src="{{instruccion.imagen.url}}" alt="imagen">  
-            <audio controls>
-                <source src="{{instruccion.audio.url}}" type="audio/mp3" >
-            </audio>
-        </li>
-    {% endfor %}
-    <ul/>
+    <form method="post" action="{% url 'discriminacion_auditiva_seleccionar' %}">
+        {% csrf_token %}
+        <ul>
+        {% for instruccion in instrucciones %}
+            <li>
+                <audio controls>
+                    <source src="{{instruccion.audio.url}}" type="audio/mp3">
+                </audio>
+                <div>
+                    {% for opcion in instrucciones %}
+                        <label>
+                            <input type="radio" name="respuesta_{{ forloop.parentloop.counter }}" value="{{opcion.imagen.url}}">
+                            <img src="{{opcion.imagen.url}}" alt="imagen" style="width: 50px; height: 50px;">
+                        </label>
+                    {% endfor %}
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+        <button type="submit">Enviar respuestas</button>
+    </form>
 </div>
 {% endblock content %} 
