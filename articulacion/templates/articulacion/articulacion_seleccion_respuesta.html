@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/style_dis_auditiva_escoger.css' %}">  
+    <link rel="stylesheet" href="{% static 'css/style_art_seleccion_respuesta.css' %}">  
 {% endblock extra_styles %}
 
 {% block content %}
@@ -11,16 +11,22 @@
     <h2>Resultado</h2>
     <ul>
         {% for resultado in resultados %}
-            <li>
-                <p>{{resultado.correcto}}</p>
+        <li>
+            <div class="resultado">
+                <p class="silaba">
+                    {{ resultado.eleccion }}
+                    
+                </p>
                 {% if resultado.respuesta %}
-                    <p>muy bien</p>
+                    <p class="correcto">¡Correcto!</p>
                 {% else %}
-                    <p>no esta correcto seleccionaste "{{resultado.eleccion}}"</p>
+                    <p class="incorrecto">¡Incorrecto!, la silaba correcta era</p> 
+                    <p class="silaba">{{ resultado.correcto }}</p>
                 {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+            </div>
+        </li>
+    {% endfor %}
+    </ul> 
 </div>
 
 {% endblock content %}

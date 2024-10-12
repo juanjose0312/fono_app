@@ -13,7 +13,7 @@
     
     {% for instruccion in instrucciones %}        
 
-        <h3>{{ instruccion.nombre }}</h3>
+        <h3>Letra {{ instruccion.nombre }}</h3>
 
         <p>{{ instruccion.instruciones }}</p>
 
@@ -27,6 +27,9 @@
         </div>
         
     {%endfor%}
+    
+
+    <p class="titulo">PERFECTO</p>
 
     <a href="{% url 'menu_articulacion_pronunciar' %}">Volver al Menú</a>
 </div>

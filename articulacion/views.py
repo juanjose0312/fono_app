@@ -141,23 +141,23 @@ class Articulacion_seleccion_view(LoginRequiredMixin, ListView):
         audios = Articulacion_seleccion_info.objects.filter(letra_categoria=letra)[0]
         audios = [
             {
-                'audio':'audios.audio_a.url',
+                'audio':audios.audio_a.url,
                 'respuesta':'a'
             },
             { 
-                'audio':'audios.audio_e.url',
+                'audio':audios.audio_e.url,
                 'respuesta':'e'
             },
             { 
-                'audio':'audios.audio_i.url',
+                'audio':audios.audio_i.url,
                 'respuesta':'i'
             },
             { 
-                'audio':'audios.audio_o.url',
+                'audio':audios.audio_o.url,
                 'respuesta':'o'
             },
             { 
-                'audio':'audios.audio_u.url',
+                'audio':audios.audio_u.url,
                 'respuesta':'u'
             },
             ]

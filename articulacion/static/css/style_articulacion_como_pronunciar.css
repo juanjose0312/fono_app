@@ -12,7 +12,7 @@ h2 {
 /* Subtítulos de las instrucciones */
 h3 {
     color: var(--color-subtitulo);
-    font-size: var(--font-size-subtitulo);
+    font-size: var(--font-size-titulo);
     text-align: center;
 
 }
@@ -20,7 +20,8 @@ h3 {
 /* Párrafo de las instrucciones */
 p {
     color: var(--color-parrafo);
-    font-size: var(--font-size-parrafo);;
+    font-size: var(--font-size-parrafo);
+    text-align: left;
 }
 
 /* Video */
@@ -54,5 +55,11 @@ a {
     text-align: center;
     text-decoration: none;
 }
+.titulo {
+    color:rgb(163, 36, 36);
+    font-size: var(--font-size-titulo);
+    text-align: center;
+}
+
 
 

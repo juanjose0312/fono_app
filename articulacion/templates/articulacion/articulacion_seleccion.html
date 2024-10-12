@@ -9,27 +9,43 @@
 <div class="content" >
     <h2>Articulacion seleccionar</h2>
     <p> Vamos a trabajar con la </p>
-    <h3>Letra:{{letra}}</h3>
+    <h2>Letra: {{letra}}</h2>
     <p>Relacione el sonido con la silaba y repitelo</p>
     <form method="post" action="{% url 'articulacion_seleccion' letra %}">
         {% csrf_token %}
         <ul>
             {% for instruccion in instrucciones%}
                 <li>
-                    <audio controls>
-                        <source src="{{instruccion.audio}}" type="audio/mp3" >
-                    </audio>
+                    <div class= "audio_container">
+                        <audio id="audio1" src="{{instruccion.audio}}"></audio>
+                        <button type="button" class="audio-button" onclick="togglePlay('audio1', this)">Reproducir</button>
+                    </div>
                     {% for silaba in silabas %}
-                        <label>
-                            <input type="radio" name="respuesta_{{letra}}{{instruccion.respuesta}}" value="{{silaba}}">
-                            <h3>{{silaba}}</h3>
-                        </label>
+                    <label class="radio-label">
+                        <input type="radio" name="respuesta_{{ letra }}{{ instruccion.respuesta }}" value="{{ silaba }}">
+                        <span class="custom-radio"></span>
+                        <span>{{ silaba }}</span>
+                    </label>
                     {% endfor %}
                 </li>
             {% endfor %}
         </ul>
-        <button type="submit">Enviar respuestas</button>
+        <button type="submit" id="button_sender">Enviar respuestas</button>
     </form>
-    <a href="{% url 'menu_articulacion_seleccion' %}"><h3>Volver al Menú</h3></a>
 </div>
+
+<script>
+    function togglePlay(audioId, button) {
+        var audio = document.getElementById(audioId);
+        if (audio.paused) {
+            audio.play();
+            button.textContent = 'Pausar'; // Cambia el texto del botón a "Pausar"
+        } else {
+            audio.pause();
+            button.textContent = 'Reproducir'; // Cambia el texto del botón a "Reproducir"
+        }
+    }
+    </script>
+
 {% endblock content %}
+

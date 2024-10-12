@@ -2,24 +2,16 @@ h2 {
     color: var(--color-titulo);
     font-size: var(--font-size-titulo);
     text-align: center;
+    margin-bottom: 2vh;
 }
 
 
-/* Subtítulos de las instrucciones */
-h3 {
-    color: var(--color-subtitulo);
-    font-size: var(--font-size-subtitulo);
-    text-align: center;
-    margin-top: 20px;
-    text-decoration: none; 
-}
-
-/* Párrafo de las instrucciones */
 p {
     color: var(--color-parrafo);
     font-size: var(--font-size-parrafo);
     text-align: justify;
-    margin-top: 20px;
+    margin: 1vh 2vw;
+
 }
 
 ul {
@@ -29,4 +21,95 @@ ul {
 li {
     display: flex;
     justify-content: space-between;
+}
+
+
+/* Contenedor del audio */
+.audio_container {
+    display: flex; 
+    align-items: left; 
+    justify-content: center; /* Centra los elementos hijos horizontalmente */
+    margin-top: 20px; /* Agrega un margen superior de 20px */
+}
+
+/* Oculta el reproductor de audio predeterminado */
+audio {
+    display: none; /* Oculta el elemento de audio */
+
+}
+
+/* Estilo del botón de audio */
+.audio-button {
+    margin-right: 6vw; /* Agrega un margen izquierdo de 6vw */
+    background-color: var(--color-subtitulo); /* Establece el color de fondo usando una variable CSS */
+    color: white; /* Establece el color del texto a blanco */ /* Elimina cualquier borde */ 
+    border: none; /* Elimina cualquier borde */
+    border-radius: 50%; /* Hace el botón redondo */
+    width: 8vh; /* Establece el ancho del botón al 8% del ancho de la ventana */
+    height: 8vh; /* Establece la altura del botón al 8% de la altura de la ventana */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa sobre el botón */
+    font-size: 3rem; /* Establece el tamaño de la fuente a 16px */
+    display: flex; /* Utiliza el modelo de diseño flexbox */
+    align-items: center; /* Centra el contenido del botón verticalmente */
+    justify-content: center; /* Centra el contenido del botón horizontalmente */
+    transition: background-color 0.3s ease; /* Agrega una transición suave para el cambio de color de fondo */
+}
+
+/* Estilo del botón de audio cuando se pasa el ratón sobre él */
+.audio-button:hover {
+    background-color: var(--color-subtitulo); /* Cambia el color de fondo cuando el ratón está sobre el botón */
+}
+
+#button_sender {
+    margin-top: 2vh;
+    width: 80vw;
+    height: 5vh;
+    padding: 10px;
+    background-color: #fecb49;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: var(--font-size-parrafo);
+    cursor: pointer;
+}
+
+.radio-label {
+    display: flex; /* Utiliza el modelo de diseño flexbox */
+    align-items: center; /* Alinea los elementos hijos verticalmente al centro */
+    cursor: pointer; /* Cambia el cursor a una mano cuando se pasa sobre el label */
+}
+
+.radio-label input[type="radio"] {
+    display: none; /* Oculta el input de radio predeterminado */
+}
+
+.custom-radio {
+    width: 4vw; /* Ancho del rectángulo */
+    height: 4vw; /* Alto del rectángulo */
+    background-color: white; /* Color de fondo del rectángulo */
+    border: 5px solid black; /* Borde del rectángulo */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    margin-right: 10px; /* Espacio entre el rectángulo y el texto */
+    display: inline-block; /* Asegura que el rectángulo se comporte como un elemento en línea */
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+}
+
+.radio-label input[type="radio"]:checked + .custom-radio {
+    background-color: var(--color-subtitulo); /* Cambia el color de fondo cuando está seleccionado */
+}
+
+.radio-label input[type="radio"]:checked + .custom-radio::after {
+    content: ''; /* Contenido vacío para el pseudo-elemento */
+    position: absolute; /* Posiciona el pseudo-elemento dentro del rectángulo */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    width: 10px; /* Ancho del pseudo-elemento */
+    height: 10px; /* Alto del pseudo-elemento */
+    background-color: white; /* Color de fondo del pseudo-elemento */
+    border-radius: 2px; /* Bordes ligeramente redondeados */
+    transform: translate(-50%, -50%); /* Ajusta la posición para centrar */
+}
+
+.radio-label span {
+    font-size: var(--font-size-parrafo); /* Ajusta el tamaño de la fuente según sea necesario */
 }
