@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/style_art_seleccion_respuesta.css' %}">  
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="content">
+    <h2>Descriminacion auditiva escoger</h2>
+    <h2>Resultado</h2>
+    <ul>
+        {% for resultado in resultados %}
+        <li>
+            <div class="resultado">
+                <p class="silaba">
+                    {{ resultado.eleccion }}
+                    
+                </p>
+                {% if resultado.respuesta %}
+                    <p class="correcto">¡Correcto!</p>
+                {% else %}
+                    <p class="incorrecto">¡Incorrecto!, la silaba correcta era</p> 
+                    <p class="silaba">{{ resultado.correcto }}</p>
+                {% endif %}
+            </div>
+        </li>
+    {% endfor %}
+    </ul> 
+</div>
+
+{% endblock content %}

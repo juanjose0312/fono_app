@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_styles %}
+    <link rel="stylesheet" href="{% static 'css/style_dis_auditiva_escoger.css' %}">  
+{% endblock extra_styles %}
+
+{% block content %}
+<div class="content">
+    <h2>Descriminacion auditiva escoger</h2>
+    <h2>Resultado</h2>
+    <ul>
+        {% for resultado in resultados %}
+            <li>    
+                <img src="{{ resultado.imagen }}" alt="imagen seleccionada">
+                {% if resultado.respuesta %}
+                    <p>Respuesta correcta</p>
+                {% else %}
+                    <p>Respuesta incorrecta</p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock content %} 

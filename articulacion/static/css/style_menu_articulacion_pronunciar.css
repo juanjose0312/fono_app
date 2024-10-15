@@ -14,7 +14,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
     text-align: center;
     transition: background-color 0.3s ease;
     box-sizing: border-box; 
@@ -24,6 +23,8 @@
     text-decoration: none;
     color: #ff8800;
     font-size: 7rem; 
+    width: 10vw;
+    height: 5vh;
 }
 
 .grid-item:hover {

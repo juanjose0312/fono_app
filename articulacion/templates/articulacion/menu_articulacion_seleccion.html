@@ -10,13 +10,11 @@
 <div class="content" >
     <h2>Menú de Letras</h2>
     <div class="grid-container">
-    {% comment %} <ul> {% endcomment %}
         {% for instruccion in instrucciones %}
         <div class="grid-item">
-        {% comment %} <li> {% endcomment %}<a href="{% url "articulacion_seleccion" instruccion.letra_categoria  %}"><p>{{ instruccion.letra_categoria }}</p></a>{% comment %} </li> {% endcomment %}
+            <a href="{% url "articulacion_seleccion" instruccion.letra_categoria  %}"><p>{{ instruccion.letra_categoria }}</p></a>
         </div>
         {% endfor %}    
-    {% comment %} </ul> {% endcomment %}
     </div>
 </div>
 {% endblock content %}

@@ -1,39 +1,60 @@
+from django.shortcuts import render
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+import random
+
 from .models import Discriminacion_auditiva_escoger_info
 from .models import Discriminacion_auditiva_seleccionar_info
-import random
+
 
 # Create your views here.
 class Discriminacion_auditiva_escoger_view(LoginRequiredMixin, ListView):
-    model = Discriminacion_auditiva_escoger_info
     template_name = 'discriminacion_auditiva/discriminacion_auditiva_escoger.html'
     context_object_name = 'instrucciones'
 
-    def get_queryset(self):
-        # modelo con el que se va a trabajar
+    def generate_queryset(self):
         model = Discriminacion_auditiva_escoger_info.objects
-
-        # extrae la longitud
         longitud = len(model.all())
-
         if longitud < 4:
             return model.all()
+        else:
+            modulos_seleccionados = random.sample(range(1, longitud + 1), 4)
+            return model.filter(id__in=modulos_seleccionados)
 
-        # selecciona 4 numeros aleatorios no repetidos 
-        modulos_seleccionados = random.sample(range(1,longitud), 4) 
+    def get_queryset(self):
+        if not hasattr(self, '_queryset'):
+            self._queryset = self.generate_queryset()
+        return self._queryset
 
-        # filtra los modulos seleccionados
-        queryset = model.filter(id__in=modulos_seleccionados)
+    def post(self, request, *args, **kwargs):
+        self.queryset = self.get_queryset()
+        respuestas = []
+        for key, value in request.POST.items():
+            if key.startswith('respuesta_'):
+                
+                key = int(key.split('_')[1])
+                imagen_correcta = self.queryset[key-1].imagen_correcta.url
 
-        return queryset
+                if imagen_correcta == value:
+                    respuestas.append({
+                        'respuesta': True,
+                        'imagen': value
+                    })
+                else:
+                    respuestas.append({
+                        'respuesta': False,
+                        'imagen': value
+                    })
+
+        return render(request, 'discriminacion_auditiva/discriminacion_auditiva_escoger_respuesta.html', {'resultados': respuestas})
 
 class Discriminacion_auditiva_seleccionar_view(LoginRequiredMixin, ListView):
     model = Discriminacion_auditiva_seleccionar_info
     template_name = 'discriminacion_auditiva/discriminacion_auditiva_seleccionar.html'
     context_object_name = 'instrucciones'
     
-    def get_queryset(self):
+    def generate_queryset(self):
         # modelo con el que se va a trabajar
         model = Discriminacion_auditiva_seleccionar_info.objects.all()
 
@@ -51,15 +72,32 @@ class Discriminacion_auditiva_seleccionar_view(LoginRequiredMixin, ListView):
         # filtra los modulos seleccionados
         queryset = [registro for registro in lista_model if registro.id in modulos_seleccionados] 
 
-        # proceso de mezcla de las imagenes
-        lista_imagenes = []
-        lista_aleatoria = random.sample(range(0,4), 4)
-
-        for registro in queryset:
-            lista_imagenes.append(registro.imagen)
-
-        for imagen, orden in zip(lista_imagenes, lista_aleatoria):
-            queryset[orden].imagen = imagen
-
         return queryset
+    
+    def get_queryset(self):
+        if not hasattr(self, '_queryset'):
+            self._queryset = self.generate_queryset()
+        return self._queryset
+
+    def post(self, request, *args, **kwargs):
+        self.queryset = self.get_queryset()
+        respuestas = []
+        for key, value in request.POST.items():
+            if key.startswith('respuesta_'):
+                
+                key = int(key.split('_')[1])
+                imagen_correcta = self.queryset[key-1].imagen.url
+
+                if imagen_correcta == value:
+                    respuestas.append({
+                        'respuesta': True,
+                        'imagen': value
+                    })
+                else:
+                    respuestas.append({
+                        'respuesta': False,
+                        'imagen': value
+                    })
+
+        return render(request, 'discriminacion_auditiva/discriminacion_auditiva_escoger_respuesta.html', {'resultados': respuestas})
 

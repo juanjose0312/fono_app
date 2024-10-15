@@ -1,16 +1,15 @@
 from django.urls import path
-from .views import Prosodia_cancion_view
-from .views import Prosodia_trabalenguas_view
+from .views import ProsodiaCancionAPIView, ProsodiaTrabalenguasAPIView
 
 urlpatterns = [
     path(
         'prosodia_cancion/',
-        Prosodia_cancion_view.as_view(),
+        ProsodiaCancionAPIView.as_view(),
         name='prosodia_cancion'
     ),
     path(
         'prosodia_trabalenguas/',
-        Prosodia_trabalenguas_view.as_view(),
+        ProsodiaTrabalenguasAPIView.as_view(),
         name='prosodia_trabalenguas'
     )
 ]

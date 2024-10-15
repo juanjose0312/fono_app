@@ -7,58 +7,45 @@
 
 {% block content %}
 <div class="content" >
-{% comment %}     <ul>
-        {% for instruccion in instrucciones %}
-            <li>{{ instruccion.campo1 }}</li>
-            <li>{{ instruccion.campo2 }}</li>
-        {% endfor %}
-    </ul> {% endcomment %}
-    
-
     <h2>Articulacion seleccionar</h2>
     <p> Vamos a trabajar con la </p>
-    <h3>Letra:{{letra}}</h3>
+    <h2>Letra: {{letra}}</h2>
     <p>Relacione el sonido con la silaba y repitelo</p>
-    <ul>
-    {% for instruccion in instrucciones  %}
-
-        <li>
-            <h3>{{letra}}a</h3>
-            <audio controls>
-                <source src="{{instruccion.audio_a.url}}" type="audio/mp3" >
-            </audio>
-        </li>
-        <li>
-            <h3>{{letra}}e</h3>
-            <audio controls>
-                <source src="{{ instruccion.audio_e.url }}" type="audio/mp3" >
-                Tu navegador no soporta el elemento de audio.
-            </audio>
-        </li>
-        <li>
-            <h3>{{letra}}i</h3>
-            <audio controls>
-                <source src="{{ instruccion.audio_i.url }}" type="audio/mp3" >
-                Tu navegador no soporta el elemento de audio.
-            </audio>
-        </li>
-        <li>
-            <h3>{{letra}}o</h3>
-            <audio controls>
-                <source src="{{ instruccion.audio_o.url }}" type="audio/mp3" >
-                Tu navegador no soporta el elemento de audio.
-            </audio>
-        </li>
-        <li>
-            <h3>{{letra}}u</h3>
-            <audio controls>
-                <source src="{{ instruccion.audio_u.url }}" type="audio/mp3" >
-                Tu navegador no soporta el elemento de audio.
-            </audio>
-        </li>
-    {% endfor %}
-    </ul>
-    <a href="{% url 'menu_articulacion_seleccion' %}"><h3>Volver al Menú</h3></a>
-
+    <form method="post" action="{% url 'articulacion_seleccion' letra %}">
+        {% csrf_token %}
+        <ul>
+            {% for instruccion in instrucciones%}
+                <li>
+                    <div class= "audio_container">
+                        <audio id="audio1" src="{{instruccion.audio}}"></audio>
+                        <button type="button" class="audio-button" onclick="togglePlay('audio1', this)">Reproducir</button>
+                    </div>
+                    {% for silaba in silabas %}
+                    <label class="radio-label">
+                        <input type="radio" name="respuesta_{{ letra }}{{ instruccion.respuesta }}" value="{{ silaba }}">
+                        <span class="custom-radio"></span>
+                        <span>{{ silaba }}</span>
+                    </label>
+                    {% endfor %}
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit" id="button_sender">Enviar respuestas</button>
+    </form>
 </div>
+
+<script>
+    function togglePlay(audioId, button) {
+        var audio = document.getElementById(audioId);
+        if (audio.paused) {
+            audio.play();
+            button.textContent = 'Pausar'; // Cambia el texto del botón a "Pausar"
+        } else {
+            audio.pause();
+            button.textContent = 'Reproducir'; // Cambia el texto del botón a "Reproducir"
+        }
+    }
+    </script>
+
 {% endblock content %}
+

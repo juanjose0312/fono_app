@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/style_prosodia_trabalenguas.css' %}"> 
+    <link rel="stylesheet" href="{% static 'prosodia/css/style_prosodia_trabalenguas.css' %}"> 
+    <script src="{% static 'prosodia/js/trabalenguas.js' %}" defer></script>
 {% endblock extra_styles %}
 
 {% block content %}
@@ -16,9 +17,10 @@
     <p>Nombre del trabalenguas</p>
     <h3>{{instruccion.nombre}}</h3>
     <img src="{{instruccion.imagen.url}}" alt="imagen trabalenguas">
-    <button class="mic-button">
-        <img src="{% static 'images/mic_abierto.png' %}" alt="Micrófono">
-    </button>
+    <button id="recordButton_1" class="mic-button">Start Recording</button>
+    <p id="status_1"></p>
+    <p id="resultado_1"></p>
 {% endfor %}
+
 </div>
 {% endblock content %} 
