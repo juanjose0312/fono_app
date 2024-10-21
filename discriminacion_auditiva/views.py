@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Min
 
 import random
 
@@ -32,19 +33,21 @@ class Discriminacion_auditiva_escoger_view(LoginRequiredMixin, ListView):
         respuestas = []
         for key, value in request.POST.items():
             if key.startswith('respuesta_'):
-                
                 key = int(key.split('_')[1])
-                imagen_correcta = self.queryset[key-1].imagen_correcta.url
+                instruccion = self.queryset[key-1]
+                imagen_correcta = instruccion.imagen_correcta.url
 
                 if imagen_correcta == value:
                     respuestas.append({
                         'respuesta': True,
-                        'imagen': value
+                        'imagen_usuario': value,
+                        'imagen_correcta': imagen_correcta
                     })
                 else:
                     respuestas.append({
                         'respuesta': False,
-                        'imagen': value
+                        'imagen_usuario': value,
+                        'imagen_correcta': imagen_correcta
                     })
 
         return render(request, 'discriminacion_auditiva/discriminacion_auditiva_escoger_respuesta.html', {'resultados': respuestas})
@@ -57,6 +60,7 @@ class Discriminacion_auditiva_seleccionar_view(LoginRequiredMixin, ListView):
     def generate_queryset(self):
         # modelo con el que se va a trabajar
         model = Discriminacion_auditiva_seleccionar_info.objects.all()
+        min_id = model.aggregate(Min('id'))['id__min']
 
         lista_model = list(model)
 
@@ -67,11 +71,16 @@ class Discriminacion_auditiva_seleccionar_view(LoginRequiredMixin, ListView):
             return model
 
         # selecciona 4 numeros aleatorios no repetidos 
-        modulos_seleccionados = random.sample(range(1,longitud), 4) 
 
+        modulos_seleccionados = random.sample(range(min_id,(min_id + longitud )), 4) 
+        desorden_de_lista = random.sample(range(4), 4) 
         # filtra los modulos seleccionados
-        queryset = [registro for registro in lista_model if registro.id in modulos_seleccionados] 
-
+        queryset_ordenado = [registro for registro in lista_model if registro.id in modulos_seleccionados] 
+        queryset= queryset_ordenado.copy()
+        for objeto, index in zip(queryset_ordenado, desorden_de_lista):
+            queryset[index] = objeto
+    
+        
         return queryset
     
     def get_queryset(self):
@@ -85,8 +94,12 @@ class Discriminacion_auditiva_seleccionar_view(LoginRequiredMixin, ListView):
         for key, value in request.POST.items():
             if key.startswith('respuesta_'):
                 
+                id_pregunta = value.split(',')[1]
+                model = Discriminacion_auditiva_seleccionar_info.objects.filter(id=id_pregunta)
                 key = int(key.split('_')[1])
-                imagen_correcta = self.queryset[key-1].imagen.url
+                
+                imagen_correcta = model[0].imagen.url
+                value = value.split(',')[0]
 
                 if imagen_correcta == value:
                     respuestas.append({

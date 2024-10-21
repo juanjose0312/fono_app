@@ -14,23 +14,25 @@
             {% for instruccion in instrucciones %}
             <li>
                 {% csrf_token %}
-                <label>
+                <label class="label-container">
                     <input type="radio" name="respuesta_{{ forloop.counter }}" value="{{ instruccion.imagen_correcta.url }}">
                     <img src="{{ instruccion.imagen_correcta.url }}" alt="imagen correcta">
+                    <div class="rectangle"></div>
                 </label>
             
                 <audio controls>
                     <source src="{{ instruccion.audio.url }}" type="audio/mp3">
                 </audio>
             
-                <label>
+                <label class="label-container">
                     <input type="radio" name="respuesta_{{ forloop.counter }}" value="{{ instruccion.imagen_incorrecta.url }}">
                     <img src="{{ instruccion.imagen_incorrecta.url }}" alt="imagen incorrecta">
+                    <div class="rectangle"></div>
                 </label>
             </li>
             {% endfor %}
         </ul>
-        <button type="submit">Enviar respuestas</button>
+        <button type="submit" id="button_sender">Enviar respuestas</button>
     </form>
 </div>
 

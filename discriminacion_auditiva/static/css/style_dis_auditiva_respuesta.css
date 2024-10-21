@@ -1,0 +1,32 @@
+/* Estilo para los elementos h2 */
+h2 {
+    color: var(--color-titulo); /* Color del texto, definido por una variable CSS */
+    font-size: var(--font-size-titulo); /* Tamaño de la fuente, definido por una variable CSS */
+    text-align: center; /* Alineación del texto al centro */
+}
+
+/* Estilo para el contenedor de la respuesta del usuario */
+.respuesta-usuario {
+    display: flex; /* Utiliza flexbox para el diseño del contenedor */
+    align-items: center; /* Alinea los elementos hijos verticalmente al centro */
+    justify-content: center; /* Alinea los elementos hijos horizontalmente al centro */
+    gap: 2vw; /* Espacio entre la imagen y el texto */
+}
+
+/* Estilo para las imágenes */
+img, .imagen-usuario, .imagen-correcta {
+    width: 25vw; /* Ancho de la imagen, medido en unidades de viewport width */
+    height: auto; /* Altura automática para mantener la proporción de la imagen */
+}
+
+/* Estilo para el texto que indica una respuesta correcta */
+.correcto {
+    color: green; /* Color verde para el texto */
+    font-size: 5rem; /* Tamaño de la fuente grande */
+}
+
+/* Estilo para el texto que indica una respuesta incorrecta */
+.incorrecto {
+    color: red; /* Color rojo para el texto */
+    font-size: 5rem; /* Tamaño de la fuente grande */
+}
