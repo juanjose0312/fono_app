@@ -37,14 +37,58 @@ li {
 }
 
 img {
-    width: 100px;
-    height: auto;
+    width: 15vw; /* Ancho de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
 }
 
-.correcto {
-    color: green;
+/* Ocultar el input radio original */
+input[type="radio"] {
+    display: none;
 }
 
-.incorrecto {
-    color: red;
+/* Estilo para el input radio personalizado */
+input[type="radio"] + img {
+    border: 2px solid transparent; /* Borde transparente por defecto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+}
+
+/* Contenedor para la imagen y el rectángulo */
+.label-container {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+/* Rectángulo que aparece debajo de la imagen */
+.label-container .rectangle {
+    display: none;
+    width: 15vw; /* Ancho del rectángulo */
+    height: 1vh; /* Altura del rectángulo */
+    background-color: var(--color-titulo); /* Color de fondo del rectángulo */
+    position: absolute;
+    bottom: -2vh; /* Posición del rectángulo debajo de la imagen */
+    left: 50vw;
+    transform: translateX(-50vw);
+}
+
+/* Mostrar el rectángulo cuando el input radio está seleccionado */
+input[type="radio"]:checked + img + .rectangle {
+    display: block;
+}
+
+#button_sender {
+    margin-top: 2vh;
+    width: 80vw;
+    height: 5vh;
+    padding: 10px;
+    background-color: #fecb49;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: var(--font-size-parrafo);
+    cursor: pointer;
+}
+
+.opciones {
+    margin-bottom: 4vh;
 }

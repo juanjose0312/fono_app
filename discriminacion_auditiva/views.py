@@ -71,17 +71,25 @@ class Discriminacion_auditiva_seleccionar_view(LoginRequiredMixin, ListView):
             return model
 
         # selecciona 4 numeros aleatorios no repetidos 
-
         modulos_seleccionados = random.sample(range(min_id,(min_id + longitud )), 4) 
-        desorden_de_lista = random.sample(range(4), 4) 
+        desorden_de_lista = random.sample(range(4), 4)
+
         # filtra los modulos seleccionados
         queryset_ordenado = [registro for registro in lista_model if registro.id in modulos_seleccionados] 
         queryset= queryset_ordenado.copy()
         for objeto, index in zip(queryset_ordenado, desorden_de_lista):
             queryset[index] = objeto
-    
-        
-        return queryset
+
+        queryset_imagenes = []
+        for objeto in queryset_ordenado :
+            queryset_imagenes.append(objeto.imagen)
+
+        queryset_dic = {
+            'informacion' : queryset,
+            'imagenes' : queryset_imagenes, 
+        }
+       
+        return queryset_dic
     
     def get_queryset(self):
         if not hasattr(self, '_queryset'):
@@ -94,23 +102,21 @@ class Discriminacion_auditiva_seleccionar_view(LoginRequiredMixin, ListView):
         for key, value in request.POST.items():
             if key.startswith('respuesta_'):
                 
-                id_pregunta = value.split(',')[1]
-                model = Discriminacion_auditiva_seleccionar_info.objects.filter(id=id_pregunta)
-                key = int(key.split('_')[1])
-                
-                imagen_correcta = model[0].imagen.url
-                value = value.split(',')[0]
-
-                if imagen_correcta == value:
+                imagen_seleccionada, imagen_correcta = value.split(',')
+                              
+                if imagen_correcta == imagen_seleccionada:
                     respuestas.append({
                         'respuesta': True,
-                        'imagen': value
+                        'imagen_correcta': imagen_correcta,
+                        'imagen_seleccionada': imagen_seleccionada 
                     })
                 else:
                     respuestas.append({
                         'respuesta': False,
-                        'imagen': value
+                        'imagen_correcta': imagen_correcta,
+                        'imagen_seleccionada': imagen_seleccionada 
                     })
 
-        return render(request, 'discriminacion_auditiva/discriminacion_auditiva_escoger_respuesta.html', {'resultados': respuestas})
+                
+        return render(request, 'discriminacion_auditiva/discriminacion_auditiva_seleccionar_respuesta.html', {'resultados': respuestas})
 
