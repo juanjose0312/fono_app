@@ -20,7 +20,7 @@
                     <div class="rectangle"></div>
                 </label>
             
-                <audio controls>
+                <audio controls class="audio-control">
                     <source src="{{ instruccion.audio.url }}" type="audio/mp3">
                 </audio>
             
@@ -36,4 +36,23 @@
     </form>
 </div>
 
-{% endblock content %} 
+{% endblock content %}
+
+{% block extra_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var audios = document.querySelectorAll('.audio-control');
+        
+        audios.forEach(function(audio) {
+            audio.addEventListener('play', function() {
+                // Solo pausa otros audios cuando se inicia la reproducción manualmente
+                audios.forEach(function(otherAudio) {
+                    if (otherAudio !== audio && !otherAudio.paused) {
+                        otherAudio.pause();
+                    }
+                });
+            });
+        });
+    });
+</script>
+{% endblock extra_scripts %}

@@ -9,7 +9,6 @@ from .models import Discriminacion_auditiva_escoger_info
 from .models import Discriminacion_auditiva_seleccionar_info
 
 
-# Create your views here.
 class Discriminacion_auditiva_escoger_view(LoginRequiredMixin, ListView):
     template_name = 'discriminacion_auditiva/discriminacion_auditiva_escoger.html'
     context_object_name = 'instrucciones'

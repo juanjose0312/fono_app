@@ -13,25 +13,25 @@ p {
 }
 
 .resultado {
-    display: flex; /* Utiliza el modelo de diseño flexbox */
-    align-items: center; /* Alinea los elementos hijos verticalmente al centro */
+    display: flex; 
+    align-items: center; 
 }
 
 .resultado p {
-    margin-right: 10px; /* Espacio entre los párrafos */
+    margin-right: 10px; 
 }
 
 .correcto {
-    color: green; /* Color verde para respuestas correctas */
+    color: green; 
     text-align: center;
     width: 60vw;
 }
 
 .incorrecto {
-    color: red; /* Color rojo para respuestas incorrectas */
+    color: red; 
 }
 
 .silaba {
-    color: var(--color-parrafo); /* Color de texto predeterminado */
-    font-size: 9rem; /* Tamaño de fuente grande */
+    color: var(--color-parrafo);
+    font-size: 9rem; 
 }

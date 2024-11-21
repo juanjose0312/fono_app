@@ -29,6 +29,9 @@ ALLOWED_HOSTS = [
     '192.168.0.9',
     '127.0.0.1',
     '192.168.2.38',
+    "192.168.0.7",
+    "192.168.1.104", 
+    
 ]
 
 
@@ -43,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'respiracion',
-    'fonacion',
     'resonancia',
     'articulacion',
     'prosodia',

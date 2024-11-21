@@ -1,9 +1,6 @@
 from django.db import models
-
-# importa el modelo User de django
 from django.contrib.auth.models import User
 
-# Create your models here.
 class perfil_info(models.Model):
     username = models.OneToOneField(User, on_delete=models.CASCADE)
     numero_de_idetificacion = models.TextField(max_length=100, verbose_name="Número de identificación")

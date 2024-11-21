@@ -5,10 +5,10 @@
     <link rel="stylesheet" href="{% static 'css/style_dis_auditiva_seleccionar.css' %}">  
 {% endblock extra_styles %}
 
-{% block content %}
+{% block content %}  
 <div class="content">
     <h2>Descriminacion auditiva seleccionar</h2>
-    <p>Une la imagen al sonido que corresponde </p>
+    <p>Escoge la imagen al sonido que corresponde </p>
     <form method="post" action="{% url 'discriminacion_auditiva_seleccionar' %}">
         {% csrf_token %}
         <ul>
@@ -29,7 +29,7 @@
             </li>
         {% endfor %}
         </ul>
-        <button type="submit">Enviar respuestas</button>
+        <button type="submit" id="button_sender">Enviar respuestas</button>
     </form>
 </div>
 {% endblock content %} 

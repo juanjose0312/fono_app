@@ -27,8 +27,7 @@ urlpatterns = [
 
 
     path(
-        # para recibir una variable de la url
-        'articulacion_completar/<str:letra>/', # letra es la variable que se va a recibir de tipo string
+        'articulacion_completar/<str:letra>/',
         Articulacion_completar_view.as_view(),
         name='articulacion_completar'
     ),
@@ -40,7 +39,7 @@ urlpatterns = [
         name='menu_articulacion_seleccion'),
 
     path(
-        'articulacion_seleccion/<str:letra>/', # letra es la variable que se va a recibir de tipo string
+        'articulacion_seleccion/<str:letra>/', 
         Articulacion_seleccion_view.as_view(),
         name='articulacion_seleccion'
     ),

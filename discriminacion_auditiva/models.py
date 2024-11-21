@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Discriminacion_auditiva_escoger_info(models.Model):
     nombre= models.TextField(max_length=100, verbose_name="nombre")
     imagen_correcta = models.ImageField(upload_to='fotos/', null=False, verbose_name="imagen_correcta")

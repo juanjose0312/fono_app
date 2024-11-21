@@ -22,7 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('respiracion/', include('respiracion.urls')),
-    path('fonacion/', include('fonacion.urls')),
     path('resonancia/', include('resonancia.urls')),
     path('articulacion/', include('articulacion.urls')),
     path('prosodia/', include('prosodia.urls')),

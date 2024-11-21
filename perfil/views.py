@@ -6,9 +6,7 @@ from django.views import View
 from .models import perfil_info
 from .forms import PerfilForm
 from django.urls import reverse_lazy
-# importa la función reverse_lazy para redireccionar el flujo a una url
 
-# Create your views here.
 class PerfilView(LoginRequiredMixin, View):
     template_name = 'perfil/perfil.html'
     context_object_name = 'users'
@@ -22,9 +20,9 @@ class PerfilView(LoginRequiredMixin, View):
         else:
             return render(request, 'perfil/perfil_sin_datos.html', {'error': 'Perfil no encontrado'})
 
-# view de un formulario de perfil
+
 class PerfilFormView(LoginRequiredMixin, FormView):
-    #model = perfil_info
+
     form_class = PerfilForm
     template_name = 'perfil/perfil_formulario.html'
     success_url = reverse_lazy('perfil')

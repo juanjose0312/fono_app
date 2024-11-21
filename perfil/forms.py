@@ -27,18 +27,3 @@ class PerfilForm(forms.Form):
     nombre_acudiente = forms.CharField(max_length=50, required=False)
     telefono_acudiente = forms.CharField(max_length=20, required=False)
     
-
-
-    #class Meta:
-        #model = perfil_info
-        #fields = (
-        #    'numero_de_idetificacion',
-        #    'fecha_de_nacimiento',
-        #    'numero_de_idetificacion',
-        #    'nombre',
-        #    'apellido',
-        #    'email',
-        #    'fecha_de_nacimiento',
-        #    'genero',
-        #    'escolaridad',
-    #    )
