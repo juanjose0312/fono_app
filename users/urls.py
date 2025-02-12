@@ -4,7 +4,7 @@ from .views import RegisterView
 
 urlpatterns = [
     path(
-        'login/', 
+        '', 
         LoginView.as_view(template_name="users/login.html"), 
         name="login"  # Añadir el nombre de la ruta
     ),
