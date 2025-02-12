@@ -2,18 +2,18 @@
 {% load static %}
 
 {% block extra_styles %}
-    <link rel="stylesheet" href="{% static 'css/style_menu_articulacion_completar.css' %}">  
+    <link rel="stylesheet" href="{% static 'css/style_menu_art_seleccion.css' %}">
 {% endblock extra_styles %}
 
 {% block content %}
 <div class="content" >
     <h2>Menú de Letras</h2>
-    <ul>
-    {% for instruccion in instrucciones %}
-    
-        <li><a href="{% url "articulacion_completar" instruccion.letra_categoria  %}">{{ instruccion.letra_categoria }}</a></li>
-    
-    {% endfor %}    
-    </ul>
+    <div class="grid-container">
+        {% for instruccion in instrucciones %}
+        <div class="grid-item">
+            <a href="{% url "articulacion_completar" instruccion.letra_categoria  %}"><p>{{ instruccion.letra_categoria }}</p></a>
+        </div>
+        {% endfor %}    
+    </div>
 </div>
 {% endblock content %}

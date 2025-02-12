@@ -17,13 +17,13 @@ class PerfilForm(forms.Form):
         ('5', 'Quinto'),
     ]
 
-    numero_de_idetificacion = forms.CharField(max_length=100, required=False)
-    nombre = forms.CharField(max_length=100, required=False)
-    apellido = forms.CharField(max_length=100, required=False)
-    email = forms.EmailField(max_length=100, required=False)
-    fecha_de_nacimiento = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}))
+    numero_de_idetificacion = forms.CharField(max_length=100, required=True)
+    nombre = forms.CharField(max_length=100, required=True)
+    apellido = forms.CharField(max_length=100, required=True)
+    #email = forms.EmailField(max_length=100, required=True)
+    fecha_de_nacimiento = forms.DateField(required=True, widget=forms.DateInput(attrs={'type': 'date'}))
     genero = forms.ChoiceField(choices=GENDER_CHOICES, required=True)
     escolaridad = forms.ChoiceField(choices=ESCOLARIDAD_CHOICES, required=True)
-    nombre_acudiente = forms.CharField(max_length=50, required=False)
-    telefono_acudiente = forms.CharField(max_length=20, required=False)
+    nombre_acudiente = forms.CharField(max_length=50, required=True)
+    telefono_acudiente = forms.CharField(max_length=20, required=True)
     

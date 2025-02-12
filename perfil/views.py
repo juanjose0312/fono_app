@@ -15,11 +15,16 @@ class PerfilView(LoginRequiredMixin, View):
         user = User.objects.filter(username=self.request.user.username).first()
         
         perfil = perfil_info.objects.filter(username=user).first()
+
+        context = {
+            'perfil': perfil,
+            'user': user
+        }
+
         if perfil:
-            return render(request, self.template_name, {'perfil': perfil})
+            return render(request, self.template_name, context)
         else:
             return render(request, 'perfil/perfil_sin_datos.html', {'error': 'Perfil no encontrado'})
-
 
 class PerfilFormView(LoginRequiredMixin, FormView):
 
@@ -34,7 +39,7 @@ class PerfilFormView(LoginRequiredMixin, FormView):
             perfil.numero_de_idetificacion = form.cleaned_data['numero_de_idetificacion']
             perfil.nombre = form.cleaned_data['nombre']
             perfil.apellido = form.cleaned_data['apellido']
-            perfil.email = form.cleaned_data['email']
+            #perfil.email = form.cleaned_data['email']
             perfil.fecha_de_nacimiento = form.cleaned_data['fecha_de_nacimiento']
             perfil.genero = form.cleaned_data['genero']
             perfil.escolaridad = form.cleaned_data['escolaridad']
@@ -47,7 +52,7 @@ class PerfilFormView(LoginRequiredMixin, FormView):
                 numero_de_idetificacion=form.cleaned_data['numero_de_idetificacion'],
                 nombre=form.cleaned_data['nombre'],
                 apellido=form.cleaned_data['apellido'],
-                email=form.cleaned_data['email'],
+                #email=form.cleaned_data['email'],
                 fecha_de_nacimiento=form.cleaned_data['fecha_de_nacimiento'],
                 genero=form.cleaned_data['genero'],
                 escolaridad=form.cleaned_data['escolaridad'],

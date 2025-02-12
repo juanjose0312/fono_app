@@ -11,6 +11,7 @@ import speech_recognition as sr
 from pydub import AudioSegment
 from io import BytesIO
 import random
+from django.db.models import Count
 from django.shortcuts import render
 
 from .models import (
@@ -72,10 +73,20 @@ class Articulacion_como_pronunciar_view(LoginRequiredMixin, ListView):
         context['letra'] = self.kwargs['letra']
         return context
 
-class Menu_articulacion_completar_view(LoginRequiredMixin, ListView):
+class Menu_articulacion_completar_view(LoginRequiredMixin, View):
     model = Articulacion_completar_info 
     template_name = 'articulacion/menu_articulacion_completar.html'
     context_object_name = 'instrucciones' 
+
+    def get(self, request, *args, **kwargs):
+        # Obtiene todos los objetos de la base de datos
+        instrucciones = Articulacion_completar_info.objects.values('letra_categoria').annotate(count=Count('letra_categoria'))
+        # Contexto para pasar al template
+        context = {
+            'instrucciones': instrucciones
+        }
+        # Renderiza el template HTML con el contexto
+        return render(request, 'articulacion/menu_articulacion_completar.html', context)
 
 class Articulacion_completar_view(APIView):
 
