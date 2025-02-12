@@ -24,10 +24,15 @@
     <ul>
     {% for instruccion in instrucciones %}
         <li>
-            <img src="{{ instruccion.imagen.url }}" alt="imagen">
-            <p>{{ instruccion.texto_incompleto }} </p>
-            <button id="recordButton_{{ forloop.counter }}" class="mic-button" data-letra="{{ instruccion.letra_categoria }}" data-numero="{{ forloop.counter }}" >Start Recording</button>
-            <p id="status_{{ forloop.counter }}"></p>
+            <div>
+                <img src="{{ instruccion.imagen.url }}" alt="imagen">
+                <p>{{ instruccion.texto_incompleto }} </p>
+                <button id="recordButton_{{ forloop.counter }}" class="mic-button" data-letra="{{ instruccion.letra_categoria }}" data-numero="{{ forloop.counter }}" >Start Recording</button>
+            </div>
+            <div>
+                <p class="letra_peque" id="status_{{ forloop.counter }}"></p>
+                <p class="letra_peque" id="resultado_{{ forloop.counter }}"></p>
+            </div>
             <p id="resultado_{{ forloop.counter }}"></p>
         </li>
     {%endfor%}

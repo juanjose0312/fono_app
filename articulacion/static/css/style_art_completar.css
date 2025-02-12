@@ -47,4 +47,6 @@ li {
 img {
     width: 15vw;
 } 
-
+.letra_peque{
+    font-size: 3rem;
+}
